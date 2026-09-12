@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- =========================================================
+     TENTREGO! — Landing page
+     .........................................................
+     Guía rápida para editar (busca estos textos dentro del archivo):
+       1. COLORES Y TIPOGRAFIAS ..... el bloque ":root", dentro de la etiqueta style
+       2. TELEFONO Y WHATSAPP ....... busca "wa.me/56987872109"
+       3. TEXTOS .................... cada sección empieza con un comentario en mayúsculas
+       4. IMAGENES .................. ver la carpeta /assets/ y su README-ASSETS.md
+     Todo lo que diga CONFIRMAR (entre corchetes) debe revisarse antes de publicar.
+     ========================================================= -->
+
+<title>Tentrego! | Envío de paquetería el mismo día en Santiago</title>
+<meta name="description" content="Retiro sin costo y entrega el mismo día en todas las comunas de Santiago. Paquetería para pymes y emprendedores, desde $2.500. Cotiza por WhatsApp.">
+<meta name="theme-color" content="#E02020">
+<meta name="author" content="Tentrego!">
+
+<!-- [CONFIRMAR dominio final] — Reemplaza "https://www.tentrego.cl/" por el dominio
+     real en las 5 líneas de abajo (canonical, og:url, og:image, twitter:image). -->
+<link rel="canonical" href="https://www.tentrego.cl/">
+
+<!-- ===== OPEN GRAPH (cómo se ve el enlace al compartirlo en WhatsApp/Facebook) ===== -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="Tentrego!">
+<meta property="og:title" content="Tentrego! | Envío de paquetería el mismo día en Santiago">
+<meta property="og:description" content="Retiro sin costo y entrega el mismo día en todas las comunas de Santiago. Paquetería para pymes y emprendedores, desde $2.500. Cotiza por WhatsApp.">
+<meta property="og:url" content="https://www.tentrego.cl/">
+<meta property="og:image" content="https://www.tentrego.cl/assets/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Tentrego! — envío de paquetería el mismo día en Santiago">
+
+<!-- ===== TWITTER CARD ===== -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tentrego! | Envío de paquetería el mismo día en Santiago">
+<meta name="twitter:description" content="Retiro sin costo y entrega el mismo día en todas las comunas de Santiago. Paquetería para pymes y emprendedores, desde $2.500.">
+<meta name="twitter:image" content="https://www.tentrego.cl/assets/og-image.jpg">
+
+<!-- ===== FAVICON ===== -->
+<!-- Ícono provisional hecho con la caja de la marca. [CONFIRMAR] Cuando existan los
+     archivos definitivos exportados desde el logo real, descomenta las dos líneas de
+     abajo (ver assets/README-ASSETS.md para los tamaños).
+<link rel="icon" type="image/png" sizes="512x512" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+-->
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+
+<!-- ===== TIPOGRAFÍAS (Google Fonts) ===== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Marca el documento como "con JavaScript activo" para poder ocultar las
+     animaciones de entrada. Si el usuario no tiene JS, el contenido igual se ve. -->
+<script>document.documentElement.className += " js";</script>
+
+<style>
+/* =========================================================
+   1. COLORES Y TIPOGRAFÍAS
+   Cambia aquí un color y se actualiza en todo el sitio.
+   ========================================================= */
+:root{
+  /* --- Paleta de marca --- */
+  --rojo:        #E02020;  /* Color principal: botones, acentos, palabra destacada */
+  --rojo-oscuro: #B81818;  /* Rojo del "hover" (cuando pasas el mouse por un botón) */
+  --azul-marino: #143059;  /* Titulares y fondos de los bloques de confianza */
+  --azul-noche:  #0E2340;  /* Azul más oscuro, solo para el pie de página */
+  --celeste:     #3DA9E0;  /* Acento secundario e íconos */
+  --amarillo:    #FFC629;  /* Destacados puntuales (usar poco) */
+  --gris-claro:  #F5F7FA;  /* Fondo alternado de secciones */
+  --gris-borde:  #E3E8EF;  /* Bordes suaves de tarjetas */
+  --gris-texto:  #5A6676;  /* Texto secundario / párrafos apagados */
+  --texto:       #1A1A1A;  /* Texto principal */
+  --blanco:      #FFFFFF;
+
+  /* --- Tipografías --- */
+  --fuente-titulo: "Montserrat", "Trebuchet MS", Arial, sans-serif;
+  --fuente-texto:  "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+
+  /* --- Radios (esquinas redondeadas) --- */
+  --radio-sm: 10px;
+  --radio-md: 16px;
+  --radio-lg: 24px;
+  --radio-full: 999px;
+
+  /* --- Sombras --- */
+  --sombra-sm:   0 2px 10px rgba(20, 48, 89, .07);
+  --sombra-md:   0 10px 30px rgba(20, 48, 89, .10);
+  --sombra-lg:   0 20px 45px rgba(20, 48, 89, .14);
+  --sombra-roja: 0 8px 22px rgba(224, 32, 32, .30);
+
+  /* --- Medidas --- */
+  --ancho-max: 1160px;
+  --alto-header: 72px;
+}
+
+/* =========================================================
+   2. BASE / RESET
+   ========================================================= */
+*,*::before,*::after{ box-sizing:border-box; }
+
+html{ -webkit-text-size-adjust:100%; }
+
+body{
+  margin:0;
+  font-family:var(--fuente-texto);
+  font-size:16px;
+  line-height:1.65;
+  color:var(--texto);
+  background:var(--blanco);
+  -webkit-font-smoothing:antialiased;
+  /* Evita el scroll horizontal. "clip" no rompe el header fijo; "hidden" es el
+     respaldo para navegadores antiguos que no entienden "clip". */
+  overflow-x:hidden;
+  overflow-x:clip;
+}
+
+img,svg{ max-width:100%; }
+img{ height:auto; display:block; }
+
+h1,h2,h3,h4{
+  font-family:var(--fuente-titulo);
+  line-height:1.15;
+  margin:0 0 .5em;
+  color:var(--azul-marino);
+  letter-spacing:-.01em;
+}
+
+p{ margin:0 0 1em; }
+p:last-child{ margin-bottom:0; }
+
+a{ color:var(--rojo); text-decoration:none; }
+a:hover{ text-decoration:underline; }
+
+ul,ol{ margin:0; padding:0; list-style:none; }
+
+button{ font:inherit; color:inherit; cursor:pointer; border:0; background:none; }
+
+/* Foco visible para navegación con teclado (accesibilidad) */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid var(--celeste);
+  outline-offset:3px;
+  border-radius:6px;
+}
+.seccion--azul a:focus-visible,
+.seccion--azul button:focus-visible{ outline-color:var(--amarillo); }
+
+/* Ancla: deja espacio bajo el header fijo al saltar a una sección */
+section[id]{ scroll-margin-top:calc(var(--alto-header) + 16px); }
+
+/* Enlace "saltar al contenido" para lectores de pantalla */
+.saltar{
+  position:absolute; left:12px; top:-60px; z-index:2000;
+  background:var(--azul-marino); color:#fff;
+  padding:12px 20px; border-radius:var(--radio-sm);
+  font-weight:600; transition:top .2s ease;
+}
+.saltar:focus{ top:12px; text-decoration:none; }
+
+/* =========================================================
+   3. UTILIDADES REUTILIZABLES
+   ========================================================= */
+.contenedor{
+  width:100%;
+  max-width:var(--ancho-max);
+  margin-inline:auto;
+  padding-inline:20px;
+}
+
+.seccion{ padding-block:64px; }
+.seccion--gris{ background:var(--gris-claro); }
+.seccion--azul{ background:var(--azul-marino); color:#EAF1FA; }
+.seccion--azul h2,
+.seccion--azul h3{ color:var(--blanco); }
+
+/* Encabezado de sección (antetítulo + título + bajada) */
+.cab{ max-width:760px; margin:0 auto 44px; text-align:center; }
+.cab--izq{ margin-inline:0; text-align:left; }
+
+.kicker{
+  font-family:var(--fuente-titulo);
+  font-weight:700; font-size:.78rem;
+  letter-spacing:.16em; text-transform:uppercase;
+  color:var(--rojo); margin:0 0 10px;
+}
+.seccion--azul .kicker{ color:var(--amarillo); }
+
+.titulo{
+  font-weight:800;
+  font-size:clamp(1.65rem, 5vw, 2.4rem);
+  text-transform:uppercase;
+}
+/* Subrayado rojo grueso y corto bajo los titulares */
+.titulo::after{
+  content:""; display:block;
+  width:68px; height:5px; border-radius:3px;
+  background:var(--rojo);
+  margin:18px auto 0;
+}
+.cab--izq .titulo::after{ margin-inline:0; }
+.seccion--azul .titulo::after{ background:var(--amarillo); }
+
+.bajada{
+  font-size:1.05rem;
+  color:var(--gris-texto);
+  margin-top:18px;
+}
+/* Bajada que va suelta bajo un encabezado, sin espacio extra arriba */
+.bajada--suelta{ margin-top:0; }
+.seccion--azul .bajada{ color:#C6D6EA; }
+
+/* Palabras de color dentro de los titulares */
+.c-rojo{ color:var(--rojo); }
+.c-celeste{ color:var(--celeste); }
+.c-amarillo{ color:var(--amarillo); }
+.c-blanco{ color:var(--blanco); }
+
+/* --- Botones --- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.95rem;
+  padding:14px 26px; border-radius:var(--radio-full);
+  text-align:center; text-decoration:none;
+  transition:background-color .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
+}
+.btn:hover{ text-decoration:none; }
+.btn svg{ flex:none; }
+
+.btn--primario{ background:var(--rojo); color:var(--blanco); box-shadow:var(--sombra-roja); }
+.btn--primario:hover{ background:var(--rojo-oscuro); transform:translateY(-2px); }
+
+.btn--secundario{ background:transparent; color:var(--azul-marino); box-shadow:inset 0 0 0 2px var(--azul-marino); }
+.btn--secundario:hover{ background:var(--azul-marino); color:var(--blanco); transform:translateY(-2px); }
+
+.btn--claro{ background:var(--blanco); color:var(--azul-marino); box-shadow:var(--sombra-md); }
+.btn--claro:hover{ background:var(--gris-claro); transform:translateY(-2px); }
+
+.btn--borde-claro{ background:transparent; color:var(--blanco); box-shadow:inset 0 0 0 2px rgba(255,255,255,.6); }
+.btn--borde-claro:hover{ background:rgba(255,255,255,.12); transform:translateY(-2px); }
+
+.btn--grande{ padding:18px 34px; font-size:1.05rem; }
+.btn--full{ width:100%; }
+
+/* --- Cortes diagonales entre secciones --- */
+.corte{ line-height:0; }
+.corte svg{ display:block; width:100%; height:38px; }
+.corte--blanco-azul{ background:var(--blanco); }
+.corte--blanco-azul path{ fill:var(--azul-marino); }
+.corte--azul-blanco{ background:var(--azul-marino); }
+.corte--azul-blanco path{ fill:var(--blanco); }
+.corte--gris-azul{ background:var(--gris-claro); }
+.corte--gris-azul path{ fill:var(--azul-marino); }
+
+/* --- Placeholders de imagen (se borran cuando llegue la foto real) --- */
+.ph{
+  width:100%; height:auto; display:block;
+  border-radius:var(--radio-lg);
+  background:var(--gris-claro);
+}
+
+/* =========================================================
+   4. HEADER (fijo arriba)
+   ========================================================= */
+.header{
+  position:sticky; top:0; z-index:1000;
+  background:var(--blanco);
+  border-bottom:1px solid transparent;
+  transition:box-shadow .25s ease, border-color .25s ease;
+}
+.header.is-scrolled{ box-shadow:var(--sombra-sm); border-bottom-color:var(--gris-borde); }
+
+.header__inner{
+  display:flex; align-items:center; gap:16px;
+  min-height:var(--alto-header);
+  /* La barra superior es un poco más ancha que el contenido para que quepan
+     el menú y los dos botones sin apretarse. */
+  max-width:1280px;
+  padding-inline:24px;
+}
+
+/* --- Logo --- */
+/* [CONFIRMAR] Cuando exista assets/logo.png (fondo transparente, 400×120 px),
+     puedes reemplazar todo el contenido de <a class="logo"> por:
+     <img src="assets/logo.png" alt="Tentrego!" width="200" height="60"> */
+.logo{
+  display:inline-flex; align-items:center; gap:10px;
+  margin-right:auto; text-decoration:none;
+  font-family:var(--fuente-titulo); font-weight:800;
+  font-size:1.35rem; letter-spacing:-.02em;
+  color:var(--rojo);
+}
+.logo:hover{ text-decoration:none; }
+.logo__icono{ width:42px; height:35px; flex:none; }
+.logo__texto{ white-space:nowrap; }
+
+/* --- Navegación escritorio --- */
+.nav{ display:none; }
+.nav__lista{ display:flex; align-items:center; gap:20px; }
+.nav__link{
+  font-family:var(--fuente-titulo); font-weight:600; font-size:.92rem;
+  color:var(--azul-marino); text-decoration:none;
+  padding:6px 0; position:relative;
+  white-space:nowrap;
+}
+.nav__link::after{
+  content:""; position:absolute; left:0; right:0; bottom:0;
+  height:3px; border-radius:2px; background:var(--rojo);
+  transform:scaleX(0); transform-origin:left; transition:transform .22s ease;
+}
+.nav__link:hover{ text-decoration:none; }
+.nav__link:hover::after{ transform:scaleX(1); }
+
+.header__acciones{ display:none; align-items:center; gap:10px; }
+.header__acciones .btn{ white-space:nowrap; padding:11px 20px; font-size:.9rem; }
+
+/* --- Botón hamburguesa (solo móvil) --- */
+.hamburguesa{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:46px; height:46px; border-radius:var(--radio-sm);
+  color:var(--azul-marino); background:var(--gris-claro);
+}
+.hamburguesa .icono-cerrar{ display:none; }
+.hamburguesa[aria-expanded="true"] .icono-menu{ display:none; }
+.hamburguesa[aria-expanded="true"] .icono-cerrar{ display:block; }
+
+/* --- Menú móvil a pantalla completa --- */
+.menu-movil{
+  position:fixed; inset:var(--alto-header) 0 0 0; z-index:999;
+  background:var(--blanco);
+  padding:28px 20px 40px;
+  overflow-y:auto;
+  transform:translateY(-12px); opacity:0; visibility:hidden;
+  transition:opacity .22s ease, transform .22s ease, visibility 0s linear .22s;
+}
+.menu-movil.is-open{
+  transform:none; opacity:1; visibility:visible;
+  transition:opacity .22s ease, transform .22s ease, visibility 0s;
+}
+.menu-movil__lista{ display:flex; flex-direction:column; gap:4px; margin-bottom:26px; }
+.menu-movil__link{
+  display:block; padding:14px 4px;
+  font-family:var(--fuente-titulo); font-weight:700; font-size:1.15rem;
+  color:var(--azul-marino); text-decoration:none;
+  border-bottom:1px solid var(--gris-borde);
+}
+.menu-movil__link:hover{ color:var(--rojo); text-decoration:none; }
+.menu-movil__acciones{ display:flex; flex-direction:column; gap:12px; }
+body.menu-abierto{ overflow:hidden; }
+
+/* =========================================================
+   5. HERO
+   ========================================================= */
+.hero{ padding-block:44px 56px; overflow:hidden; }
+.hero__grid{ display:grid; gap:36px; align-items:center; }
+
+.hero__badge{
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--gris-claro); color:var(--azul-marino);
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.78rem;
+  letter-spacing:.06em; text-transform:uppercase;
+  padding:8px 16px; border-radius:var(--radio-full);
+  margin-bottom:20px;
+}
+.hero__badge span.punto{
+  width:8px; height:8px; border-radius:50%; background:var(--rojo); flex:none;
+}
+
+.hero h1{
+  font-size:clamp(2rem, 8vw, 3.5rem);
+  font-weight:800; text-transform:uppercase;
+  margin-bottom:0;
+}
+.hero__subrayado{
+  display:block; width:92px; height:7px; border-radius:4px;
+  background:var(--rojo); margin:22px 0 24px;
+}
+.hero__sub{
+  font-size:1.12rem; color:var(--gris-texto);
+  max-width:520px; margin-bottom:28px;
+}
+.hero__ctas{ display:flex; flex-wrap:wrap; gap:14px; }
+
+.hero__media{ position:relative; }
+.hero__media .ph,
+.hero__media img{
+  border-radius:var(--radio-lg);
+  box-shadow:var(--sombra-lg);
+}
+/* Tarjeta flotante sobre la foto */
+.hero__tarjeta{
+  display:none;
+  position:absolute; left:-18px; bottom:26px;
+  background:var(--blanco); border-radius:var(--radio-md);
+  box-shadow:var(--sombra-lg);
+  padding:14px 18px;
+  align-items:center; gap:12px;
+  max-width:270px;
+}
+.hero__tarjeta-icono{
+  width:42px; height:42px; flex:none; border-radius:50%;
+  background:rgba(224,32,32,.10); color:var(--rojo);
+  display:grid; place-items:center;
+}
+.hero__tarjeta-texto strong{
+  display:block; font-family:var(--fuente-titulo); font-weight:700;
+  font-size:.95rem; color:var(--azul-marino); line-height:1.2;
+}
+.hero__tarjeta-texto span{ font-size:.82rem; color:var(--gris-texto); }
+
+/* =========================================================
+   6. FRANJA DE CONFIANZA (banda azul marino)
+   ========================================================= */
+.franja{ background:var(--azul-marino); padding-block:10px 42px; }
+.franja__grid{
+  display:grid; grid-template-columns:repeat(2,1fr); gap:22px 18px;
+}
+.franja__item{ text-align:center; color:#fff; }
+.franja__icono{
+  width:52px; height:52px; margin:0 auto 12px;
+  border-radius:50%; display:grid; place-items:center;
+  background:rgba(255,255,255,.10);
+  color:var(--blanco);
+}
+.franja__titulo{
+  font-family:var(--fuente-titulo); font-weight:700;
+  font-size:.95rem; line-height:1.3; color:var(--blanco);
+  margin:0;
+}
+
+/* =========================================================
+   7. SERVICIOS
+   ========================================================= */
+.servicios__grid{ display:grid; gap:22px; }
+.tarjeta{
+  background:var(--blanco);
+  border:1px solid var(--gris-borde);
+  border-radius:var(--radio-lg);
+  padding:30px 26px;
+  box-shadow:var(--sombra-sm);
+  transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+}
+.tarjeta:hover{ transform:translateY(-5px); box-shadow:var(--sombra-md); border-color:transparent; }
+.tarjeta__icono{
+  width:58px; height:58px; border-radius:var(--radio-md);
+  display:grid; place-items:center; margin-bottom:18px;
+  background:rgba(224,32,32,.09); color:var(--rojo);
+}
+.tarjeta--celeste .tarjeta__icono{ background:rgba(61,169,224,.14); color:#1B7FB0; }
+.tarjeta h3{ font-size:1.12rem; font-weight:700; margin-bottom:8px; }
+.tarjeta p{ color:var(--gris-texto); font-size:.98rem; }
+
+/* =========================================================
+   8. CÓMO FUNCIONA (4 pasos)
+   ========================================================= */
+.pasos{ display:grid; gap:30px; position:relative; }
+.paso{ text-align:center; position:relative; }
+.paso__num{
+  width:70px; height:70px; margin:0 auto 18px;
+  border-radius:50%; display:grid; place-items:center;
+  background:var(--azul-marino); color:var(--blanco);
+  font-family:var(--fuente-titulo); font-weight:800; font-size:1.35rem;
+  box-shadow:0 0 0 6px var(--blanco), 0 0 0 8px rgba(224,32,32,.25);
+  position:relative; z-index:1;
+}
+.seccion--gris .paso__num{ box-shadow:0 0 0 6px var(--gris-claro), 0 0 0 8px rgba(224,32,32,.25); }
+.paso h3{ font-size:1.08rem; font-weight:700; margin-bottom:8px; }
+.paso p{ color:var(--gris-texto); font-size:.96rem; max-width:300px; margin-inline:auto; }
+
+/* =========================================================
+   9. POR QUÉ TENTREGO!
+   ========================================================= */
+.porque__grid{ display:grid; gap:36px; align-items:center; }
+.ventajas{ display:flex; flex-direction:column; gap:20px; }
+.ventaja{ display:flex; gap:16px; align-items:flex-start; }
+.ventaja__icono{
+  width:44px; height:44px; flex:none; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(20,48,89,.08); color:var(--azul-marino);
+}
+.ventaja h3{ font-size:1.02rem; font-weight:700; margin-bottom:4px; }
+.ventaja p{ color:var(--gris-texto); font-size:.96rem; }
+.ventaja__precio{
+  font-family:var(--fuente-titulo); font-weight:800; color:var(--rojo);
+}
+.porque__media .ph,
+.porque__media img{ border-radius:var(--radio-lg); box-shadow:var(--sombra-lg); }
+
+/* =========================================================
+   10. PORTAL DE CLIENTES
+   ========================================================= */
+.portal__grid{ display:grid; gap:36px; align-items:center; }
+.portal__lista{ display:flex; flex-direction:column; gap:12px; margin:24px 0 30px; }
+.portal__lista li{ display:flex; gap:12px; align-items:flex-start; color:#D6E3F2; }
+.portal__lista svg{ flex:none; color:var(--amarillo); margin-top:3px; }
+.portal__media .ph{ border-radius:var(--radio-md); background:transparent; }
+
+/* =========================================================
+   11. COBERTURA
+   ========================================================= */
+.cobertura__grid{ display:grid; gap:36px; align-items:center; }
+.cobertura__datos{ display:grid; gap:14px; margin-top:26px; }
+.dato{
+  display:flex; gap:14px; align-items:center;
+  background:var(--gris-claro); border-radius:var(--radio-md);
+  padding:16px 18px;
+}
+.dato svg{ flex:none; color:var(--rojo); }
+.dato strong{ display:block; font-family:var(--fuente-titulo); color:var(--azul-marino); font-size:.98rem; }
+.dato span{ font-size:.9rem; color:var(--gris-texto); }
+.mapa{ width:100%; height:auto; display:block; }
+
+/* =========================================================
+   12. TARIFAS
+   ========================================================= */
+.tarifas__caja{
+  background:var(--blanco);
+  border:1px solid var(--gris-borde);
+  border-radius:var(--radio-lg);
+  box-shadow:var(--sombra-md);
+  padding:36px 26px;
+  max-width:760px; margin-inline:auto;
+  text-align:center;
+}
+.tarifas__precio{
+  font-family:var(--fuente-titulo); font-weight:800;
+  color:var(--azul-marino); line-height:1;
+  margin:0 0 8px;
+  font-size:clamp(2.6rem, 11vw, 4rem);
+}
+.tarifas__precio small{
+  display:block; font-size:.9rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase;
+  color:var(--rojo); margin-bottom:6px;
+}
+.tarifas__nota{ color:var(--gris-texto); font-size:.95rem; }
+.tarifas__bullets{
+  display:grid; gap:12px; text-align:left;
+  margin:26px 0 30px;
+}
+.tarifas__bullets li{ display:flex; gap:12px; align-items:flex-start; font-size:.98rem; }
+.tarifas__bullets svg{ flex:none; color:var(--rojo); margin-top:4px; }
+.tarifas__badge{
+  display:inline-block; background:var(--amarillo); color:var(--azul-marino);
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.78rem;
+  letter-spacing:.1em; text-transform:uppercase;
+  padding:6px 14px; border-radius:var(--radio-full); margin-bottom:16px;
+}
+
+/* =========================================================
+   13. PREGUNTAS FRECUENTES (acordeón)
+   ========================================================= */
+.faq{ max-width:820px; margin-inline:auto; }
+.faq__item{
+  border:1px solid var(--gris-borde);
+  border-radius:var(--radio-md);
+  margin-bottom:12px;
+  background:var(--blanco);
+  overflow:hidden;
+  transition:border-color .2s ease, box-shadow .2s ease;
+}
+.faq__item.abierto{ border-color:rgba(224,32,32,.35); box-shadow:var(--sombra-sm); }
+.faq__pregunta{ margin:0; font-size:1rem; }
+.faq__btn{
+  width:100%; display:flex; align-items:center; justify-content:space-between; gap:16px;
+  padding:18px 20px; text-align:left;
+  font-family:var(--fuente-titulo); font-weight:700; font-size:1rem;
+  color:var(--azul-marino);
+}
+.faq__btn:hover{ color:var(--rojo); }
+.faq__chevron{ flex:none; color:var(--rojo); transition:transform .3s ease; }
+.faq__item.abierto .faq__chevron{ transform:rotate(180deg); }
+.faq__panel{
+  max-height:0; overflow:hidden; visibility:hidden;
+  transition:max-height .32s ease, visibility 0s linear .32s;
+}
+.faq__item.abierto .faq__panel{
+  visibility:visible;
+  transition:max-height .32s ease, visibility 0s;
+}
+.faq__contenido{ padding:0 20px 20px; color:var(--gris-texto); font-size:.98rem; }
+
+/* =========================================================
+   14. CONTACTO
+   ========================================================= */
+.contacto__grid{ display:grid; gap:34px; align-items:start; }
+.contacto__canales{ display:grid; gap:14px; margin-top:26px; }
+.canal{
+  display:flex; gap:14px; align-items:center;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--radio-md);
+  padding:16px 18px;
+  color:#EAF1FA; text-decoration:none;
+  transition:background-color .2s ease, transform .2s ease;
+}
+a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text-decoration:none; }
+.canal__icono{
+  width:44px; height:44px; flex:none; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.12); color:var(--blanco);
+}
+.canal strong{ display:block; font-family:var(--fuente-titulo); font-size:1rem; color:var(--blanco); }
+.canal strong + span{ font-size:.88rem; color:#B9CCE2; }
+
+.contacto__caja{
+  background:var(--blanco); color:var(--texto);
+  border-radius:var(--radio-lg);
+  box-shadow:var(--sombra-lg);
+  padding:32px 26px; text-align:center;
+}
+.contacto__caja h3{ font-size:1.3rem; font-weight:800; text-transform:uppercase; margin-bottom:10px; }
+.contacto__caja p{ color:var(--gris-texto); font-size:.98rem; margin-bottom:24px; }
+.contacto__tel{
+  display:block; margin-top:18px;
+  font-family:var(--fuente-titulo); font-weight:800; font-size:1.5rem;
+  color:var(--azul-marino); text-decoration:none;
+}
+.contacto__tel:hover{ color:var(--rojo); text-decoration:none; }
+.contacto__horario{ font-size:.88rem; margin-top:6px; }
+
+/* =========================================================
+   15. FOOTER
+   ========================================================= */
+.footer{ background:var(--azul-noche); color:#AFC2D8; padding-block:48px 26px; font-size:.94rem; }
+.footer__grid{ display:grid; gap:32px; }
+.footer .logo{ color:var(--blanco); font-size:1.3rem; margin-bottom:14px; }
+.footer__frase{ max-width:320px; color:#AFC2D8; }
+.footer h4{
+  color:var(--blanco); font-size:.82rem; font-weight:700;
+  letter-spacing:.14em; text-transform:uppercase; margin-bottom:14px;
+}
+.footer__lista{ display:flex; flex-direction:column; gap:9px; }
+.footer__lista a{ color:#AFC2D8; text-decoration:none; }
+.footer__lista a:hover{ color:var(--blanco); text-decoration:underline; }
+.footer__redes{ display:flex; gap:10px; margin-top:16px; }
+.footer__red{
+  width:42px; height:42px; border-radius:50%;
+  display:grid; place-items:center;
+  background:rgba(255,255,255,.09); color:var(--blanco);
+  transition:background-color .2s ease, transform .2s ease;
+}
+.footer__red:hover{ background:var(--rojo); transform:translateY(-2px); }
+.footer__legal{
+  border-top:1px solid rgba(255,255,255,.12);
+  margin-top:36px; padding-top:20px;
+  display:flex; flex-wrap:wrap; gap:8px 20px; justify-content:space-between;
+  font-size:.86rem; color:#8FA6C0;
+}
+
+/* =========================================================
+   16. BOTÓN FLOTANTE DE WHATSAPP
+   ========================================================= */
+.wa-flotante{
+  position:fixed; right:16px; bottom:16px; z-index:900;
+  width:58px; height:58px; border-radius:50%;
+  display:grid; place-items:center;
+  background:#25D366; color:#fff;
+  box-shadow:0 8px 24px rgba(37,211,102,.45);
+  animation:wa-entrada .5s .8s ease both;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+.wa-flotante:hover{ transform:scale(1.08); text-decoration:none; }
+.wa-flotante::after{
+  content:""; position:absolute; inset:0; border-radius:50%;
+  border:2px solid rgba(37,211,102,.55);
+  animation:wa-pulso 2.4s ease-out infinite;
+}
+@keyframes wa-entrada{
+  from{ opacity:0; transform:translateY(20px) scale(.8); }
+  to  { opacity:1; transform:none; }
+}
+@keyframes wa-pulso{
+  0%  { transform:scale(1);   opacity:.8; }
+  70% { transform:scale(1.55); opacity:0; }
+  100%{ transform:scale(1.55); opacity:0; }
+}
+
+/* =========================================================
+   17. ANIMACIONES DE ENTRADA
+   ========================================================= */
+.js .reveal{
+  opacity:0; transform:translateY(26px);
+  transition:opacity .6s ease, transform .6s ease;
+}
+.js .reveal.is-visible{ opacity:1; transform:none; }
+
+/* Respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{
+    animation-duration:.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.001ms !important;
+  }
+  .js .reveal{ opacity:1; transform:none; }
+  .wa-flotante::after{ display:none; }
+}
+
+/* =========================================================
+   18. RESPONSIVE — TABLET (desde 700px)
+   ========================================================= */
+@media (min-width:700px){
+  .seccion{ padding-block:80px; }
+  .franja__grid{ grid-template-columns:repeat(4,1fr); }
+  .servicios__grid{ grid-template-columns:repeat(2,1fr); }
+  .pasos{ grid-template-columns:repeat(2,1fr); gap:38px 24px; }
+  .tarifas__caja{ padding:48px 44px; }
+  .tarifas__bullets{ grid-template-columns:repeat(2,1fr); }
+  .footer__grid{ grid-template-columns:1.4fr 1fr 1fr; }
+  .contacto__canales{ grid-template-columns:repeat(2,1fr); }
+  .wa-flotante{ right:24px; bottom:24px; width:62px; height:62px; }
+}
+
+/* =========================================================
+   19. RESPONSIVE — ESCRITORIO (desde 1000px)
+   ========================================================= */
+@media (min-width:1000px){
+  .seccion{ padding-block:96px; }
+
+  .hero{ padding-block:70px 84px; }
+  .hero__grid{ grid-template-columns:1.05fr .95fr; gap:52px; }
+  .hero__tarjeta{ display:flex; }
+
+  .franja{ padding-block:16px 56px; }
+
+  .servicios__grid{ grid-template-columns:repeat(4,1fr); }
+
+  .pasos{ grid-template-columns:repeat(4,1fr); gap:26px; }
+  /* Línea punteada que une los 4 pasos */
+  .pasos::before{
+    content:""; position:absolute;
+    top:35px; left:12%; right:12%;
+    border-top:2px dashed rgba(20,48,89,.22);
+  }
+
+  .porque__grid{ grid-template-columns:1fr 1fr; gap:60px; }
+  .portal__grid{ grid-template-columns:1fr 1.05fr; gap:56px; }
+  .cobertura__grid{ grid-template-columns:1fr 1fr; gap:56px; }
+  .contacto__grid{ grid-template-columns:1.1fr .9fr; gap:56px; }
+  .contacto__canales{ grid-template-columns:1fr; }
+  .contacto__caja{ padding:40px 34px; }
+
+  .corte svg{ height:56px; }
+}
+
+/* =========================================================
+   20. RESPONSIVE — HEADER COMPLETO (desde 1240px)
+   Bajo este ancho no caben el menú y los dos botones, así que
+   se usa la hamburguesa (que incluye ambos botones).
+   ========================================================= */
+@media (min-width:1240px){
+  .nav{ display:block; }
+  .header__acciones{ display:flex; }
+  .hamburguesa{ display:none; }
+  .menu-movil{ display:none; }
+}
+</style>
+</head>
+
+<body>
+
+<a class="saltar" href="#contenido">Saltar al contenido principal</a>
+
+<!-- =========================================================
+     ÍCONOS SVG REUTILIZABLES
+     Están definidos una sola vez aquí y se usan con <use href="#id">.
+     No toques este bloque a menos que quieras cambiar un ícono.
+     ========================================================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-whatsapp" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.13-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.47c-.17 0-.43.06-.66.31-.22.25-.87.85-.87 2.07s.89 2.4 1.02 2.57c.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.2-.58.2-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/>
+    </symbol>
+    <symbol id="i-escudo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3 4.5 6v5.5c0 4.6 3.2 8.2 7.5 9.5 4.3-1.3 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9.2 12 2 2 3.6-3.8"/>
+    </symbol>
+    <symbol id="i-reloj" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.5"/><path d="M12 7.2V12l3.2 1.9"/>
+    </symbol>
+    <symbol id="i-caja" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.5 7.6 12 3.5 3.5 7.6v8.8L12 20.5l8.5-4.1V7.6Z"/><path d="M3.6 7.7 12 11.8l8.4-4.1M12 11.8v8.7"/>
+    </symbol>
+    <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="5" width="17" height="15.5" rx="2.5"/><path d="M3.5 9.8h17M8.2 3v4M15.8 3v4"/>
+    </symbol>
+    <symbol id="i-corazon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 20.3s-7.6-4.6-7.6-9.5A4.3 4.3 0 0 1 12 8.1a4.3 4.3 0 0 1 7.6 2.7c0 4.9-7.6 9.5-7.6 9.5Z"/>
+    </symbol>
+    <symbol id="i-camion" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2.8 6.5h10.4v9.8H2.8zM13.2 10h3.6l3.4 3.2v3.1h-7z"/><circle cx="7" cy="18" r="1.9"/><circle cx="17" cy="18" r="1.9"/>
+    </symbol>
+    <symbol id="i-rayo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.2 2.5 4.8 13.4h6l-1.2 8.1 8.6-11.1h-6.2l1.2-7.9Z"/>
+    </symbol>
+    <symbol id="i-pantalla" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="2.8" y="4" width="18.4" height="12.6" rx="2.2"/><path d="M8.5 20.5h7M12 16.6v3.9M7 9.2h6M7 12.4h4"/>
+    </symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 21.5s6.8-6 6.8-11a6.8 6.8 0 1 0-13.6 0c0 5 6.8 11 6.8 11Z"/><circle cx="12" cy="10.4" r="2.6"/>
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m4.5 12.6 4.8 4.6L19.5 6.8"/>
+    </symbol>
+    <symbol id="i-check-circulo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="8.6"/><path d="m8.4 12.2 2.5 2.5 4.7-5"/>
+    </symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="m6.5 9.5 5.5 5.5 5.5-5.5"/>
+    </symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round">
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    </symbol>
+    <symbol id="i-cerrar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round">
+      <path d="M6 6l12 12M18 6 6 18"/>
+    </symbol>
+    <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <rect x="3.5" y="3.5" width="17" height="17" rx="4.6"/><circle cx="12" cy="12" r="3.9"/><circle cx="17.1" cy="6.9" r="1.1" fill="currentColor" stroke="none"/>
+    </symbol>
+    <symbol id="i-telefono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 16.4v2.6a1.8 1.8 0 0 1-2 1.8 17.6 17.6 0 0 1-7.7-2.7 17.3 17.3 0 0 1-5.3-5.3A17.6 17.6 0 0 1 3.3 5a1.8 1.8 0 0 1 1.8-2h2.6a1.8 1.8 0 0 1 1.8 1.6c.1.9.3 1.8.7 2.6a1.8 1.8 0 0 1-.4 1.9l-1.1 1.1a14 14 0 0 0 5.3 5.3l1.1-1.1a1.8 1.8 0 0 1 1.9-.4c.8.4 1.7.6 2.6.7a1.8 1.8 0 0 1 1.4 1.8Z"/>
+    </symbol>
+    <symbol id="i-externo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 4h6v6M20 4l-8.5 8.5M18 13.8V19a1.8 1.8 0 0 1-1.8 1.8H5a1.8 1.8 0 0 1-1.8-1.8V7.8A1.8 1.8 0 0 1 5 6h5.2"/>
+    </symbol>
+    <symbol id="i-pesa" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M6.6 7.6h10.8l2.4 12.2a1.4 1.4 0 0 1-1.4 1.7H5.6a1.4 1.4 0 0 1-1.4-1.7L6.6 7.6Z"/><circle cx="12" cy="4.6" r="2.2"/>
+    </symbol>
+    <symbol id="i-personas" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="9" cy="8" r="3.3"/><path d="M2.8 20.2a6.2 6.2 0 0 1 12.4 0M16.4 5.1a3.3 3.3 0 0 1 0 5.9M18 13.6a6.2 6.2 0 0 1 3.2 5.4"/>
+    </symbol>
+    <symbol id="i-documento" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M13.6 2.8H6.8A1.9 1.9 0 0 0 5 4.7v14.6a1.9 1.9 0 0 0 1.9 1.9h10.2a1.9 1.9 0 0 0 1.9-1.9V8.1l-5.4-5.3Z"/><path d="M13.4 2.9v5.3h5.5M8.6 13.4h6.8M8.6 16.8h4.6"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- =========================================================
+     HEADER (barra superior fija)
+     ========================================================= -->
+<header class="header" id="header">
+  <div class="contenedor header__inner">
+
+    <!-- Logo: caja roja 3D con líneas de velocidad + wordmark -->
+    <a class="logo" href="#inicio" aria-label="Tentrego! — ir al inicio">
+      <svg class="logo__icono" viewBox="0 0 50 40" aria-hidden="true" focusable="false">
+        <!-- líneas de velocidad -->
+        <rect x="0"  y="11" width="11" height="3.2" rx="1.6" fill="#E02020" opacity=".35"/>
+        <rect x="2"  y="18.4" width="9" height="3.2" rx="1.6" fill="#E02020" opacity=".6"/>
+        <rect x="0"  y="25.8" width="12" height="3.2" rx="1.6" fill="#E02020" opacity=".35"/>
+        <!-- caja isométrica -->
+        <path d="M32 4 49 10.5 32 17 15 10.5Z" fill="#F25252"/>
+        <path d="M15 10.5 32 17v18.5L15 29Z" fill="#E02020"/>
+        <path d="M49 10.5 32 17v18.5L49 29Z" fill="#B81818"/>
+        <path d="M23.5 7.2 40.5 13.7v4.2L23.5 11.4Z" fill="#FFC629" opacity=".95"/>
+      </svg>
+      <span class="logo__texto"><span class="c-rojo">Tentre</span><span class="c-celeste">go</span><span class="c-rojo">!</span></span>
+    </a>
+
+    <!-- Navegación de escritorio -->
+    <nav class="nav" aria-label="Navegación principal">
+      <ul class="nav__lista">
+        <li><a class="nav__link" href="#servicios">Servicios</a></li>
+        <li><a class="nav__link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="nav__link" href="#cobertura">Cobertura</a></li>
+        <li><a class="nav__link" href="#tarifas">Tarifas</a></li>
+        <li><a class="nav__link" href="#preguntas">Preguntas</a></li>
+        <li><a class="nav__link" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botones de escritorio -->
+    <div class="header__acciones">
+      <a class="btn btn--secundario" href="https://package-delivery-inventory.vercel.app" target="_blank" rel="noopener">Ingresar al portal</a>
+      <a class="btn btn--primario" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+        <svg width="19" height="19" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+        Cotizar por WhatsApp
+      </a>
+    </div>
+
+    <!-- Botón hamburguesa (móvil) -->
+    <button class="hamburguesa" id="btn-menu" type="button" aria-expanded="false" aria-controls="menu-movil" aria-label="Abrir menú de navegación">
+      <svg class="icono-menu"   width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-menu"/></svg>
+      <svg class="icono-cerrar" width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-cerrar"/></svg>
+    </button>
+  </div>
+
+  <!-- Menú móvil a pantalla completa -->
+  <div class="menu-movil" id="menu-movil">
+    <nav aria-label="Navegación móvil">
+      <ul class="menu-movil__lista">
+        <li><a class="menu-movil__link" href="#servicios">Servicios</a></li>
+        <li><a class="menu-movil__link" href="#como-funciona">Cómo funciona</a></li>
+        <li><a class="menu-movil__link" href="#por-que">Por qué Tentrego!</a></li>
+        <li><a class="menu-movil__link" href="#cobertura">Cobertura</a></li>
+        <li><a class="menu-movil__link" href="#tarifas">Tarifas</a></li>
+        <li><a class="menu-movil__link" href="#preguntas">Preguntas frecuentes</a></li>
+        <li><a class="menu-movil__link" href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+    <div class="menu-movil__acciones">
+      <a class="btn btn--primario btn--full" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+        <svg width="19" height="19" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+        Cotizar por WhatsApp
+      </a>
+      <a class="btn btn--secundario btn--full" href="https://package-delivery-inventory.vercel.app" target="_blank" rel="noopener">Ingresar al portal</a>
+    </div>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" id="inicio">
+    <div class="contenedor hero__grid">
+
+      <div class="hero__texto reveal">
+        <p class="hero__badge"><span class="punto"></span> Santiago · Lunes a sábado</p>
+
+        <h1>Cumplimos <span class="c-rojo">cada entrega</span>, cumplimos contigo</h1>
+        <span class="hero__subrayado" aria-hidden="true"></span>
+
+        <p class="hero__sub">Envío de paquetería para pymes y emprendedores en todo Santiago. Retiramos en tu bodega sin costo y entregamos el mismo día.</p>
+
+        <div class="hero__ctas">
+          <a class="btn btn--primario btn--grande" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+            <svg width="21" height="21" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+            Cotiza por WhatsApp
+          </a>
+          <a class="btn btn--secundario btn--grande" href="#como-funciona">Ver cómo funciona</a>
+        </div>
+      </div>
+
+      <div class="hero__media reveal">
+        <!-- ===== FOTO PRINCIPAL =====================================
+             Qué foto va aquí: repartidor de Tentrego! entregando un paquete
+             (idealmente con la caja o polera de la marca, luz natural, vertical-cuadrada).
+             Archivo: assets/hero.jpg  ·  Tamaño recomendado: 1200 × 900 px
+
+             Cuando tengas la foto real: borra el <svg> de abajo y descomenta esta línea:
+             <img src="assets/hero.jpg" width="1200" height="900"
+                  alt="Repartidor de Tentrego! entregando un paquete a una clienta en Santiago">
+             ========================================================= -->
+        <svg class="ph" viewBox="0 0 1200 900" role="img" aria-label="Espacio reservado para la foto de un repartidor de Tentrego! entregando un paquete">
+          <rect width="1200" height="900" fill="#F5F7FA"/>
+          <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#E3E8EF" stroke-width="2" rx="26"/>
+          <g transform="translate(600 385)">
+            <path d="M-110-70 0-112 110-70 0-28Z" fill="#F25252"/>
+            <path d="M-110-70 0-28v118l-110-42Z" fill="#E02020"/>
+            <path d="M110-70 0-28v118l110-42Z" fill="#B81818"/>
+            <rect x="-176" y="-58" width="46" height="13" rx="6.5" fill="#E02020" opacity=".35"/>
+            <rect x="-166" y="-28" width="36" height="13" rx="6.5" fill="#E02020" opacity=".55"/>
+            <rect x="-176" y="2"  width="50" height="13" rx="6.5" fill="#E02020" opacity=".35"/>
+          </g>
+          <text x="600" y="600" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700" fill="#143059">Foto: assets/hero.jpg</text>
+          <text x="600" y="646" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5A6676">1200 × 900 px — repartidor entregando un paquete</text>
+        </svg>
+
+        <div class="hero__tarjeta">
+          <span class="hero__tarjeta-icono">
+            <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-rayo"/></svg>
+          </span>
+          <span class="hero__tarjeta-texto">
+            <strong>Tentregamos en el mismo día</strong>
+            <span>Retiro coordinado por WhatsApp</span>
+          </span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Corte diagonal blanco → azul -->
+  <div class="corte corte--blanco-azul" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60 1440 0v60Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       FRANJA DE CONFIANZA
+       ========================================================= -->
+  <section class="franja" aria-label="Nuestros compromisos">
+    <div class="contenedor">
+      <ul class="franja__grid">
+        <li class="franja__item reveal">
+          <span class="franja__icono"><svg width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-reloj"/></svg></span>
+          <p class="franja__titulo">Entregas el mismo día</p>
+        </li>
+        <li class="franja__item reveal">
+          <span class="franja__icono"><svg width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-camion"/></svg></span>
+          <p class="franja__titulo">Retiros sin costo</p>
+        </li>
+        <li class="franja__item reveal">
+          <span class="franja__icono"><svg width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span>
+          <p class="franja__titulo">Todo Santiago</p>
+        </li>
+        <li class="franja__item reveal">
+          <span class="franja__icono"><svg width="26" height="26" aria-hidden="true" focusable="false"><use href="#i-calendario"/></svg></span>
+          <p class="franja__titulo">Lunes a sábado</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Corte diagonal azul → blanco -->
+  <div class="corte corte--azul-blanco" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60 1440 0v60Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       SERVICIOS
+       ========================================================= -->
+  <section class="seccion" id="servicios">
+    <div class="contenedor">
+
+      <header class="cab reveal">
+        <p class="kicker">Servicios</p>
+        <h2 class="titulo">Lo que <span class="c-rojo">hacemos</span> por ti</h2>
+        <p class="bajada">Paquetería simple, sin contratos eternos ni letra chica. Tú vendes, nosotros despachamos.</p>
+      </header>
+
+      <div class="servicios__grid">
+
+        <article class="tarjeta reveal">
+          <span class="tarjeta__icono"><svg width="27" height="27" aria-hidden="true" focusable="false"><use href="#i-rayo"/></svg></span>
+          <h3>Despacho same day</h3>
+          <p>Retiramos y entregamos en el mismo día dentro de Santiago.</p>
+        </article>
+
+        <article class="tarjeta tarjeta--celeste reveal">
+          <span class="tarjeta__icono"><svg width="27" height="27" aria-hidden="true" focusable="false"><use href="#i-camion"/></svg></span>
+          <h3>Retiro sin costo</h3>
+          <p>Pasamos por tus paquetes a tu bodega, oficina o casa, sin costo adicional desde 5 paquetes.</p>
+        </article>
+
+        <article class="tarjeta reveal">
+          <span class="tarjeta__icono"><svg width="27" height="27" aria-hidden="true" focusable="false"><use href="#i-pesa"/></svg></span>
+          <h3>Paquetería hasta 25 kg</h3>
+          <p>Llevamos todo tipo de paquetes, hasta 25 kg por bulto.</p>
+        </article>
+
+        <article class="tarjeta tarjeta--celeste reveal">
+          <span class="tarjeta__icono"><svg width="27" height="27" aria-hidden="true" focusable="false"><use href="#i-pantalla"/></svg></span>
+          <h3>Seguimiento y evidencia</h3>
+          <p>Sigue el estado de cada envío en tu portal y recibe respaldo de la entrega.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       CÓMO FUNCIONA
+       ========================================================= -->
+  <section class="seccion seccion--gris" id="como-funciona">
+    <div class="contenedor">
+
+      <header class="cab reveal">
+        <p class="kicker">Cómo funciona</p>
+        <h2 class="titulo">Despachar con nosotros toma <span class="c-rojo">4 pasos</span></h2>
+        <p class="bajada">Sin plataformas complicadas ni formularios interminables: se coordina por WhatsApp, como hablarías con cualquier persona.</p>
+      </header>
+
+      <ol class="pasos">
+        <li class="paso reveal">
+          <span class="paso__num">1</span>
+          <h3>Cotizas por WhatsApp</h3>
+          <p>Nos cuentas cuántos paquetes y a qué comunas.</p>
+        </li>
+        <li class="paso reveal">
+          <span class="paso__num">2</span>
+          <h3>Agendamos el retiro</h3>
+          <p>Coordinamos día y hora que te acomode, de lunes a sábado.</p>
+        </li>
+        <li class="paso reveal">
+          <span class="paso__num">3</span>
+          <h3>Retiramos en tu bodega</h3>
+          <p>Pasamos por tus paquetes sin costo.</p>
+        </li>
+        <li class="paso reveal">
+          <span class="paso__num">4</span>
+          <h3>Entregamos y registramos</h3>
+          <p>Entregamos el mismo día y queda el registro en tu portal.</p>
+        </li>
+      </ol>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       POR QUÉ TENTREGO!
+       ========================================================= -->
+  <section class="seccion" id="por-que">
+    <div class="contenedor porque__grid">
+
+      <div class="reveal">
+        <header class="cab cab--izq">
+          <p class="kicker">Por qué Tentrego!</p>
+          <h2 class="titulo">Somos pyme, y eso <span class="c-rojo">se nota</span></h2>
+        </header>
+
+        <ul class="ventajas">
+          <li class="ventaja">
+            <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-corazon"/></svg></span>
+            <div>
+              <h3>Apoyamos tu emprendimiento</h3>
+              <p>Sabemos lo que cuesta levantar un negocio, porque también somos uno.</p>
+            </div>
+          </li>
+          <li class="ventaja">
+            <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-personas"/></svg></span>
+            <div>
+              <h3>Trato personalizado</h3>
+              <p>Hablas con personas, no con un bot ni con un formulario de tickets.</p>
+            </div>
+          </li>
+          <li class="ventaja">
+            <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg></span>
+            <div>
+              <h3>Sin contratos ni mínimos imposibles</h3>
+              <p>Despachas cuando lo necesitas, sin amarres ni volúmenes que no puedes cumplir.</p>
+            </div>
+          </li>
+          <li class="ventaja">
+            <!-- [CONFIRMAR vigencia del precio] Si el valor "desde $2.500" cambia,
+                 recuerda actualizarlo también en: la sección TARIFAS, la pregunta 1 de
+                 PREGUNTAS FRECUENTES y la meta description del <head>. -->
+            <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-rayo"/></svg></span>
+            <div>
+              <h3>Tarifas competitivas</h3>
+              <p>Desde <span class="ventaja__precio">$2.500</span> por envío dentro de Santiago.</p>
+            </div>
+          </li>
+          <li class="ventaja">
+            <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-escudo"/></svg></span>
+            <div>
+              <h3>Seguridad y cuidado en cada paquete</h3>
+              <p>Entregamos más que paquetes: entregamos confianza.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="porque__media reveal">
+        <!-- ===== FOTO SECUNDARIA ====================================
+             Qué foto va aquí: el equipo de Tentrego! cargando la camioneta,
+             o una toma del despacho/bodega. Transmite cercanía y trabajo real.
+             Archivo: assets/equipo.jpg  ·  Tamaño recomendado: 1000 × 1100 px
+
+             Cuando tengas la foto real: borra el <svg> de abajo y descomenta esta línea:
+             <img src="assets/equipo.jpg" width="1000" height="1100" loading="lazy"
+                  alt="Equipo de Tentrego! cargando paquetes en la camioneta de reparto">
+             ========================================================= -->
+        <svg class="ph" viewBox="0 0 1000 1100" role="img" aria-label="Espacio reservado para una foto del equipo de Tentrego! cargando la camioneta">
+          <rect width="1000" height="1100" fill="#F5F7FA"/>
+          <rect x="1" y="1" width="998" height="1098" fill="none" stroke="#E3E8EF" stroke-width="2" rx="26"/>
+          <g transform="translate(500 470)" fill="none" stroke="#143059" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
+            <path d="M-150-90h150v130h-150zM0-60h50l45 44v46H0z"/>
+            <circle cx="-110" cy="66" r="26"/><circle cx="30" cy="66" r="26"/>
+          </g>
+          <text x="500" y="700" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700" fill="#143059">Foto: assets/equipo.jpg</text>
+          <text x="500" y="746" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5A6676">1000 × 1100 px — el equipo cargando la camioneta</text>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===========================================================
+       TESTIMONIOS — SECCIÓN DESACTIVADA A PROPÓSITO
+       ...........................................................
+       IMPORTANTE: no se publican testimonios inventados. Cuando tengas
+       reseñas REALES de clientes (con su autorización), copia el bloque
+       de abajo fuera de este comentario y reemplaza los textos.
+
+       <section class="seccion seccion--gris" id="testimonios">
+         <div class="contenedor">
+           <header class="cab">
+             <p class="kicker">Clientes</p>
+             <h2 class="titulo">Lo que dicen <span class="c-rojo">de nosotros</span></h2>
+           </header>
+           <div class="servicios__grid">
+             <article class="tarjeta">
+               <p>"Aquí va la reseña textual del cliente, tal como la escribió."</p>
+               <h3>Nombre real del cliente</h3>
+               <p>Nombre de su emprendimiento · Comuna</p>
+             </article>
+           </div>
+         </div>
+       </section>
+       =========================================================== -->
+
+  <!-- Corte diagonal blanco → azul -->
+  <div class="corte corte--blanco-azul" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60 1440 0v60Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       PORTAL DE CLIENTES
+       ========================================================= -->
+  <section class="seccion seccion--azul" id="portal">
+    <div class="contenedor portal__grid">
+
+      <div class="reveal">
+        <header class="cab cab--izq">
+          <p class="kicker">Portal de clientes</p>
+          <h2 class="titulo">Sigue tus envíos <span class="c-amarillo">en línea</span></h2>
+        </header>
+
+        <p>Cada cliente de Tentrego! tiene acceso a su portal para revisar el estado de sus envíos, historial y respaldo de entregas.</p>
+
+        <ul class="portal__lista">
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Estado de cada envío, actualizado por nuestro equipo</li>
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Historial de despachos para revisar cuando quieras</li>
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check"/></svg> Respaldo de entrega de tus paquetes</li>
+        </ul>
+
+        <a class="btn btn--claro btn--grande" href="https://package-delivery-inventory.vercel.app" target="_blank" rel="noopener">
+          Ingresar al portal
+          <svg width="19" height="19" aria-hidden="true" focusable="false"><use href="#i-externo"/></svg>
+        </a>
+      </div>
+
+      <div class="portal__media reveal">
+        <!-- ===== CAPTURA DEL PORTAL =================================
+             [CONFIRMAR] Gonzalo debe tomar una captura real de la app
+             (https://package-delivery-inventory.vercel.app) con datos de ejemplo,
+             sin información sensible de clientes reales.
+             Archivo: assets/portal.png  ·  Tamaño recomendado: 1600 × 1000 px
+
+             Cuando tengas la captura: borra el <svg> de abajo y descomenta esta línea:
+             <img src="assets/portal.png" width="1600" height="1000" loading="lazy"
+                  alt="Vista del portal de clientes de Tentrego! con el listado de envíos">
+             ========================================================= -->
+        <svg class="ph" viewBox="0 0 1000 660" role="img" aria-label="Espacio reservado para la captura del portal de clientes de Tentrego!">
+          <!-- marco de laptop -->
+          <rect x="60" y="20" width="880" height="540" rx="20" fill="#0B1E38" stroke="rgba(255,255,255,.22)" stroke-width="3"/>
+          <rect x="82" y="44" width="836" height="492" rx="8" fill="#FFFFFF"/>
+          <!-- barra superior de la app -->
+          <rect x="82" y="44" width="836" height="56" fill="#143059"/>
+          <circle cx="118" cy="72" r="9" fill="#E02020"/>
+          <rect x="138" y="65" width="96" height="14" rx="7" fill="#FFFFFF" opacity=".85"/>
+          <rect x="800" y="63" width="82" height="18" rx="9" fill="#3DA9E0" opacity=".9"/>
+          <!-- barra lateral -->
+          <rect x="82" y="100" width="188" height="436" fill="#F5F7FA"/>
+          <rect x="106" y="130" width="126" height="12" rx="6" fill="#143059" opacity=".55"/>
+          <rect x="106" y="164" width="140" height="12" rx="6" fill="#143059" opacity=".3"/>
+          <rect x="106" y="198" width="110" height="12" rx="6" fill="#143059" opacity=".3"/>
+          <rect x="106" y="232" width="132" height="12" rx="6" fill="#143059" opacity=".3"/>
+          <!-- tarjetas resumen -->
+          <rect x="300" y="128" width="180" height="78" rx="10" fill="#F5F7FA"/>
+          <rect x="496" y="128" width="180" height="78" rx="10" fill="#F5F7FA"/>
+          <rect x="692" y="128" width="180" height="78" rx="10" fill="#F5F7FA"/>
+          <rect x="322" y="152" width="58" height="16" rx="8" fill="#E02020" opacity=".8"/>
+          <rect x="518" y="152" width="58" height="16" rx="8" fill="#3DA9E0" opacity=".8"/>
+          <rect x="714" y="152" width="58" height="16" rx="8" fill="#FFC629"/>
+          <rect x="322" y="178" width="110" height="10" rx="5" fill="#143059" opacity=".25"/>
+          <rect x="518" y="178" width="110" height="10" rx="5" fill="#143059" opacity=".25"/>
+          <rect x="714" y="178" width="110" height="10" rx="5" fill="#143059" opacity=".25"/>
+          <!-- filas de envíos -->
+          <g fill="#F5F7FA">
+            <rect x="300" y="234" width="572" height="52" rx="9"/>
+            <rect x="300" y="300" width="572" height="52" rx="9"/>
+            <rect x="300" y="366" width="572" height="52" rx="9"/>
+            <rect x="300" y="432" width="572" height="52" rx="9"/>
+          </g>
+          <g fill="#143059" opacity=".28">
+            <rect x="322" y="253" width="150" height="12" rx="6"/>
+            <rect x="322" y="319" width="186" height="12" rx="6"/>
+            <rect x="322" y="385" width="130" height="12" rx="6"/>
+            <rect x="322" y="451" width="172" height="12" rx="6"/>
+          </g>
+          <g>
+            <rect x="760" y="248" width="88" height="22" rx="11" fill="#3DA9E0" opacity=".85"/>
+            <rect x="760" y="314" width="88" height="22" rx="11" fill="#FFC629"/>
+            <rect x="760" y="380" width="88" height="22" rx="11" fill="#3DA9E0" opacity=".85"/>
+            <rect x="760" y="446" width="88" height="22" rx="11" fill="#E02020" opacity=".8"/>
+          </g>
+          <!-- base de la laptop -->
+          <rect x="20" y="566" width="960" height="22" rx="11" fill="#0B1E38" stroke="rgba(255,255,255,.22)" stroke-width="3"/>
+          <text x="500" y="632" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#C6D6EA">Captura pendiente: assets/portal.png (1600 × 1000 px)</text>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Corte diagonal azul → blanco -->
+  <div class="corte corte--azul-blanco" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60 1440 0v60Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       COBERTURA
+       ========================================================= -->
+  <section class="seccion" id="cobertura">
+    <div class="contenedor cobertura__grid">
+
+      <div class="reveal">
+        <header class="cab cab--izq">
+          <p class="kicker">Cobertura</p>
+          <h2 class="titulo">Todo <span class="c-rojo">Santiago</span>, de lunes a sábado</h2>
+        </header>
+
+        <p class="bajada bajada--suelta">Operamos en todas las comunas de Santiago, de lunes a sábado. Nuestra base de operaciones está en Ñuñoa, así que salimos temprano y llegamos a tiempo.</p>
+
+        <div class="cobertura__datos">
+          <div class="dato">
+            <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg>
+            <div>
+              <strong>Base de operaciones en Ñuñoa</strong>
+              <span>Desde ahí coordinamos retiros y entregas</span>
+            </div>
+          </div>
+          <div class="dato">
+            <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-calendario"/></svg>
+            <div>
+              <strong>Lunes a sábado</strong>
+              <span>Agenda tu retiro el día que te acomode</span>
+            </div>
+          </div>
+          <div class="dato">
+            <svg width="24" height="24" aria-hidden="true" focusable="false"><use href="#i-camion"/></svg>
+            <div>
+              <strong>Todas las comunas de Santiago</strong>
+              <span>Cuéntanos tus destinos y te cotizamos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mapa estilizado (dibujo esquemático, no un mapa real a escala) -->
+      <div class="reveal">
+        <svg class="mapa" viewBox="0 0 620 560" role="img" aria-label="Ilustración esquemática de la cobertura de Tentrego! en la Región Metropolitana, con base en Ñuñoa">
+          <rect width="620" height="560" rx="26" fill="#F5F7FA"/>
+          <!-- silueta esquemática de la zona urbana -->
+          <path d="M132 118c54-38 132-52 198-34 62 17 104 58 122 116 19 61 8 128-28 175-38 49-104 72-168 64-66-8-124-47-150-105-27-60-17-140 26-176Z"
+                fill="#FFFFFF" stroke="#143059" stroke-width="3" stroke-opacity=".28"/>
+          <!-- divisiones internas (comunas, esquemáticas) -->
+          <g stroke="#143059" stroke-opacity=".16" stroke-width="2" fill="none">
+            <path d="M150 240h330M196 150v300M300 128v320M394 156v290M142 330h348"/>
+          </g>
+          <!-- anillos de cobertura desde la base -->
+          <g fill="none" stroke="#E02020" stroke-opacity=".28" stroke-dasharray="7 9" stroke-width="2">
+            <circle cx="330" cy="286" r="86"/><circle cx="330" cy="286" r="140"/><circle cx="330" cy="286" r="194"/>
+          </g>
+          <!-- puntos de entrega -->
+          <g fill="#3DA9E0">
+            <circle cx="226" cy="214" r="7"/><circle cx="424" cy="206" r="7"/><circle cx="196" cy="352" r="7"/>
+            <circle cx="452" cy="366" r="7"/><circle cx="330" cy="150" r="7"/><circle cx="272" cy="432" r="7"/>
+            <circle cx="398" cy="450" r="7"/><circle cx="486" cy="278" r="7"/><circle cx="168" cy="272" r="7"/>
+          </g>
+          <!-- base de operaciones -->
+          <g transform="translate(330 286)">
+            <circle r="30" fill="#E02020" opacity=".14"/>
+            <circle r="17" fill="#E02020"/>
+            <path d="M-6 0 -1.5 4.6 6.5-4" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </g>
+          <text x="330" y="348" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700" fill="#143059">Ñuñoa</text>
+          <text x="330" y="500" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="23" font-weight="800" fill="#143059" letter-spacing="1">REGIÓN METROPOLITANA</text>
+          <text x="330" y="528" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#5A6676">Ilustración referencial de nuestra cobertura</text>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       TARIFAS
+       ========================================================= -->
+  <section class="seccion seccion--gris" id="tarifas">
+    <div class="contenedor">
+
+      <header class="cab reveal">
+        <p class="kicker">Tarifas</p>
+        <h2 class="titulo">Tarifas competitivas, <span class="c-rojo">sin letra chica</span></h2>
+      </header>
+
+      <div class="tarifas__caja reveal">
+        <span class="tarifas__badge">Envíos dentro de Santiago</span>
+
+        <!-- [CONFIRMAR vigencia del precio] Valor "desde $2.500". Si cambia,
+             actualízalo también en POR QUÉ TENTREGO!, en la pregunta 1 de
+             PREGUNTAS FRECUENTES y en la meta description del <head>. -->
+        <p class="tarifas__precio"><small>Desde</small>$2.500</p>
+        <p class="tarifas__nota">por envío dentro de Santiago</p>
+
+        <ul class="tarifas__bullets">
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circulo"/></svg> Retiros sin costo desde 5 paquetes.</li>
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circulo"/></svg> Sin contratos ni volúmenes mínimos altos.</li>
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circulo"/></svg> Hasta 25 kg por bulto, sin recargos sorpresa.</li>
+          <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circulo"/></svg> El valor final depende de la comuna, el volumen mensual y el tipo de paquete.</li>
+        </ul>
+
+        <a class="btn btn--primario btn--grande" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+          <svg width="21" height="21" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+          Pide tu cotización
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PREGUNTAS FRECUENTES (acordeón)
+       ========================================================= -->
+  <section class="seccion" id="preguntas">
+    <div class="contenedor">
+
+      <header class="cab reveal">
+        <p class="kicker">Preguntas frecuentes</p>
+        <h2 class="titulo">Resolvemos tus <span class="c-rojo">dudas</span></h2>
+        <p class="bajada">Si te queda algo en el tintero, escríbenos por WhatsApp y te respondemos al tiro.</p>
+      </header>
+
+      <div class="faq reveal">
+
+        <!-- Pregunta 1 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1">
+              <span>¿Cuánto cuesta un envío?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <!-- [CONFIRMAR vigencia del precio] -->
+          <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
+            <div class="faq__contenido">
+              <p>Desde $2.500 por envío dentro de Santiago. El valor final depende de la comuna de destino, el volumen mensual que despaches y el tipo de paquete. Escríbenos por WhatsApp con tus destinos y te cotizamos sin compromiso.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 2 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2">
+              <span>¿Retiran en mi bodega o casa?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2">
+            <div class="faq__contenido">
+              <p>Sí. Pasamos por tus paquetes a tu bodega, oficina o casa, y el retiro no tiene costo adicional desde 5 paquetes. Coordinamos día y hora contigo.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 3 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3">
+              <span>¿Cuál es el peso máximo por paquete?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3">
+            <div class="faq__contenido">
+              <p>Llevamos paquetes de hasta 25 kg por bulto. Si tienes algo más pesado o de medidas especiales, cuéntanos por WhatsApp y vemos cómo ayudarte.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 4 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4">
+              <span>¿Entregan el mismo día?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <!-- [CONFIRMAR hora de corte] Falta definir la hora límite para agendar un
+               retiro y que el envío salga el mismo día (por ejemplo "antes de las 11:00").
+               Cuando la tengas, reemplaza la frase genérica del párrafo de abajo por el
+               horario concreto: "...agendando el retiro antes de las HH:MM". -->
+          <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
+            <div class="faq__contenido">
+              <p>Sí, entregamos el mismo día dentro de Santiago. Para alcanzar a salir con tus paquetes hay que agendar el retiro temprano: escríbenos por WhatsApp y te confirmamos el horario de corte del día.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 5 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5">
+              <span>¿Qué comunas cubren?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5">
+            <div class="faq__contenido">
+              <p>Cubrimos todas las comunas de Santiago. Nuestra base está en Ñuñoa y desde ahí coordinamos retiros y entregas por toda la ciudad.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 6 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6">
+              <span>¿Qué días operan?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6">
+            <div class="faq__contenido">
+              <p>Operamos de lunes a sábado. Agenda tu retiro el día que mejor te acomode dentro de esa ventana.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pregunta 7 -->
+        <div class="faq__item">
+          <h3 class="faq__pregunta">
+            <button class="faq__btn" type="button" id="faq-btn-7" aria-expanded="false" aria-controls="faq-panel-7">
+              <span>¿Cómo sigo mis envíos?</span>
+              <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
+            </button>
+          </h3>
+          <div class="faq__panel" id="faq-panel-7" role="region" aria-labelledby="faq-btn-7">
+            <div class="faq__contenido">
+              <p>A través de tu portal de clientes. Ahí revisas el estado de cada envío, tu historial de despachos y el respaldo de las entregas. <a href="https://package-delivery-inventory.vercel.app" target="_blank" rel="noopener">Ingresar al portal</a>.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Corte diagonal blanco → azul -->
+  <div class="corte corte--blanco-azul" aria-hidden="true">
+    <svg viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true" focusable="false"><path d="M0 60 1440 0v60Z"/></svg>
+  </div>
+
+  <!-- =========================================================
+       CONTACTO / CTA FINAL
+       ========================================================= -->
+  <section class="seccion seccion--azul" id="contacto">
+    <div class="contenedor contacto__grid">
+
+      <div class="reveal">
+        <header class="cab cab--izq">
+          <p class="kicker">Contacto</p>
+          <h2 class="titulo">¿Listo para despachar <span class="c-amarillo">con nosotros</span>?</h2>
+        </header>
+
+        <p class="bajada bajada--suelta">Cuéntanos cuántos paquetes despachas y a qué comunas. Te respondemos con una cotización clara, sin compromiso.</p>
+
+        <div class="contacto__canales">
+          <a class="canal" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+            <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg></span>
+            <span><strong>+56 9 8787 2109</strong><span>WhatsApp — la vía más rápida</span></span>
+          </a>
+
+          <a class="canal" href="https://instagram.com/tentrego.chile" target="_blank" rel="noopener">
+            <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg></span>
+            <span><strong>@tentrego.chile</strong><span>Síguenos en Instagram</span></span>
+          </a>
+
+          <!-- [CONFIRMAR email de contacto] Cuando exista un correo oficial,
+               descomenta este bloque y reemplaza "correo@tentrego.cl".
+          <a class="canal" href="mailto:correo@tentrego.cl">
+            <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg></span>
+            <span><strong>correo@tentrego.cl</strong><span>Escríbenos por correo</span></span>
+          </a>
+          -->
+
+          <div class="canal">
+            <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span>
+            <span><strong>Ñuñoa, Santiago</strong><span>Base de operaciones</span></span>
+          </div>
+        </div>
+
+        <!-- ===========================================================
+             FORMULARIO DE CONTACTO — DESACTIVADO
+             ...........................................................
+             Hoy priorizamos WhatsApp porque aún no hay un email confirmado.
+             CÓMO ACTIVARLO cuando lo necesites:
+               Opción A (mailto, sin servicios externos):
+                 1. Saca este bloque del comentario.
+                 2. En el <form>, cambia action="mailto:TU-CORREO@dominio.cl".
+                 3. Ojo: abre el programa de correo del visitante; es el método más básico.
+               Opción B (Formspree, recomendado):
+                 1. Crea una cuenta gratis en formspree.io y copia tu ID de formulario.
+                 2. Cambia action="https://formspree.io/f/TU-ID-DE-FORMSPREE".
+                 3. Deja method="POST".
+
+        <form class="contacto__form" action="mailto:TU-CORREO@dominio.cl" method="POST">
+          <label for="f-nombre">Nombre</label>
+          <input id="f-nombre" name="nombre" type="text" required>
+
+          <label for="f-email">Email</label>
+          <input id="f-email" name="email" type="email" required>
+
+          <label for="f-telefono">Teléfono</label>
+          <input id="f-telefono" name="telefono" type="tel">
+
+          <label for="f-mensaje">Mensaje</label>
+          <textarea id="f-mensaje" name="mensaje" rows="4" required></textarea>
+
+          <button class="btn btn--primario btn--full" type="submit">Enviar mensaje</button>
+        </form>
+             =========================================================== -->
+      </div>
+
+      <div class="contacto__caja reveal">
+        <h3>Cotiza en 1 minuto</h3>
+        <p>Escríbenos por WhatsApp con la cantidad de paquetes y las comunas de destino. Te respondemos con el valor y coordinamos el retiro.</p>
+
+        <a class="btn btn--primario btn--grande btn--full" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">
+          <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+          Cotiza por WhatsApp
+        </a>
+
+        <a class="contacto__tel" href="tel:+56987872109">+56 9 8787 2109</a>
+        <p class="contacto__horario">Lunes a sábado · Santiago</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+<footer class="footer">
+  <div class="contenedor">
+    <div class="footer__grid">
+
+      <div>
+        <a class="logo" href="#inicio" aria-label="Tentrego! — ir al inicio">
+          <svg class="logo__icono" viewBox="0 0 50 40" aria-hidden="true" focusable="false">
+            <rect x="0"  y="11" width="11" height="3.2" rx="1.6" fill="#FFFFFF" opacity=".35"/>
+            <rect x="2"  y="18.4" width="9" height="3.2" rx="1.6" fill="#FFFFFF" opacity=".55"/>
+            <rect x="0"  y="25.8" width="12" height="3.2" rx="1.6" fill="#FFFFFF" opacity=".35"/>
+            <path d="M32 4 49 10.5 32 17 15 10.5Z" fill="#F25252"/>
+            <path d="M15 10.5 32 17v18.5L15 29Z" fill="#E02020"/>
+            <path d="M49 10.5 32 17v18.5L49 29Z" fill="#B81818"/>
+            <path d="M23.5 7.2 40.5 13.7v4.2L23.5 11.4Z" fill="#FFC629" opacity=".95"/>
+          </svg>
+          <span class="logo__texto"><span class="c-blanco">Tentre</span><span class="c-celeste">go</span><span class="c-amarillo">!</span></span>
+        </a>
+        <p class="footer__frase">Envío de paquetería con compromiso y puntualidad.</p>
+
+        <div class="footer__redes">
+          <a class="footer__red" href="https://instagram.com/tentrego.chile" target="_blank" rel="noopener" aria-label="Instagram de Tentrego!">
+            <svg width="21" height="21" aria-hidden="true" focusable="false"><use href="#i-instagram"/></svg>
+          </a>
+          <a class="footer__red" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo" aria-label="Escribir a Tentrego! por WhatsApp">
+            <svg width="21" height="21" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+          </a>
+          <a class="footer__red" href="tel:+56987872109" aria-label="Llamar a Tentrego!">
+            <svg width="21" height="21" aria-hidden="true" focusable="false"><use href="#i-telefono"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Navegación del pie de página">
+        <h4>Navegación</h4>
+        <ul class="footer__lista">
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#como-funciona">Cómo funciona</a></li>
+          <li><a href="#cobertura">Cobertura</a></li>
+          <li><a href="#tarifas">Tarifas</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer__lista">
+          <li><a href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo">WhatsApp +56 9 8787 2109</a></li>
+          <li><a href="https://instagram.com/tentrego.chile" target="_blank" rel="noopener">@tentrego.chile</a></li>
+          <li><a href="https://package-delivery-inventory.vercel.app" target="_blank" rel="noopener">Portal de clientes</a></li>
+          <li>Ñuñoa, Santiago</li>
+          <li>Lunes a sábado</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="footer__legal">
+      <!-- El año se actualiza solo con JavaScript -->
+      <span>&copy; <span id="anio">2026</span> Tentrego! Todos los derechos reservados.</span>
+      <span>Envíos en la Región Metropolitana, Chile.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Botón flotante de WhatsApp -->
+<a class="wa-flotante" href="https://wa.me/56987872109?text=Hola%20Tentrego!%2C%20quiero%20cotizar%20un%20env%C3%ADo" aria-label="Cotizar por WhatsApp con Tentrego!">
+  <svg width="30" height="30" aria-hidden="true" focusable="false"><use href="#i-whatsapp"/></svg>
+</a>
+
+<!-- =========================================================
+     DATOS ESTRUCTURADOS PARA GOOGLE (JSON-LD)
+     Ayuda a que Google entienda que Tentrego! es un negocio local.
+     ========================================================= -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DeliveryService",
+  "name": "Tentrego!",
+  "description": "Envío de paquetería para pymes y emprendedores en Santiago. Retiro sin costo y entrega el mismo día.",
+  "url": "https://www.tentrego.cl/",
+  "image": "https://www.tentrego.cl/assets/og-image.jpg",
+  "telephone": "+56987872109",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Ñuñoa",
+    "addressRegion": "Región Metropolitana",
+    "addressCountry": "CL"
+  },
+  "areaServed": {
+    "@type": "City",
+    "name": "Santiago, Chile"
+  },
+  "openingHours": "Mo-Sa",
+  "sameAs": ["https://instagram.com/tentrego.chile"]
+}
+</script>
+
+<!-- =========================================================
+     JAVASCRIPT
+     Solo lo necesario: menú móvil, scroll suave, acordeón,
+     animaciones de entrada, header al hacer scroll y año del footer.
+     ========================================================= -->
+<script>
+(function () {
+  "use strict";
+
+  var prefiereMenosMovimiento = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ----- 1. Header: cambia de estado al hacer scroll ----- */
+  var header = document.getElementById("header");
+  function actualizarHeader() {
+    header.classList.toggle("is-scrolled", window.scrollY > 10);
+  }
+  actualizarHeader();
+  window.addEventListener("scroll", actualizarHeader, { passive: true });
+
+  /* ----- 2. Menú hamburguesa (móvil) ----- */
+  var btnMenu = document.getElementById("btn-menu");
+  var menuMovil = document.getElementById("menu-movil");
+
+  function cerrarMenu() {
+    btnMenu.setAttribute("aria-expanded", "false");
+    btnMenu.setAttribute("aria-label", "Abrir menú de navegación");
+    menuMovil.classList.remove("is-open");
+    document.body.classList.remove("menu-abierto");
+  }
+
+  btnMenu.addEventListener("click", function () {
+    var abierto = btnMenu.getAttribute("aria-expanded") === "true";
+    if (abierto) {
+      cerrarMenu();
+    } else {
+      btnMenu.setAttribute("aria-expanded", "true");
+      btnMenu.setAttribute("aria-label", "Cerrar menú de navegación");
+      menuMovil.classList.add("is-open");
+      document.body.classList.add("menu-abierto");
+    }
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && btnMenu.getAttribute("aria-expanded") === "true") {
+      cerrarMenu();
+      btnMenu.focus();
+    }
+  });
+
+  /* ----- 3. Scroll suave hacia las secciones ----- */
+  document.addEventListener("click", function (e) {
+    var enlace = e.target.closest('a[href^="#"]');
+    if (!enlace) return;
+
+    var id = enlace.getAttribute("href");
+    if (id === "#" || id.length < 2) return;
+
+    var destino = document.querySelector(id);
+    if (!destino) return;
+
+    e.preventDefault();
+    cerrarMenu();
+
+    destino.scrollIntoView({
+      behavior: prefiereMenosMovimiento ? "auto" : "smooth",
+      block: "start"
+    });
+
+    // Deja el foco en la sección para quien navega con teclado
+    destino.setAttribute("tabindex", "-1");
+    destino.focus({ preventScroll: true });
+  });
+
+  /* ----- 4. Acordeón de preguntas frecuentes ----- */
+  var botonesFaq = document.querySelectorAll(".faq__btn");
+
+  Array.prototype.forEach.call(botonesFaq, function (boton) {
+    var item = boton.closest(".faq__item");
+    var panel = document.getElementById(boton.getAttribute("aria-controls"));
+
+    boton.addEventListener("click", function () {
+      var abierto = boton.getAttribute("aria-expanded") === "true";
+
+      // Cierra las demás preguntas
+      Array.prototype.forEach.call(botonesFaq, function (otro) {
+        if (otro === boton) return;
+        otro.setAttribute("aria-expanded", "false");
+        otro.closest(".faq__item").classList.remove("abierto");
+        document.getElementById(otro.getAttribute("aria-controls")).style.maxHeight = null;
+      });
+
+      boton.setAttribute("aria-expanded", abierto ? "false" : "true");
+      item.classList.toggle("abierto", !abierto);
+      panel.style.maxHeight = abierto ? null : panel.scrollHeight + "px";
+    });
+  });
+
+  // Si cambia el ancho de pantalla, recalcula la altura de la pregunta abierta
+  window.addEventListener("resize", function () {
+    var abierta = document.querySelector(".faq__item.abierto .faq__panel");
+    if (abierta) abierta.style.maxHeight = abierta.scrollHeight + "px";
+  });
+
+  /* ----- 5. Animaciones de entrada al hacer scroll ----- */
+  var elementos = document.querySelectorAll(".reveal");
+
+  if (prefiereMenosMovimiento || !("IntersectionObserver" in window)) {
+    Array.prototype.forEach.call(elementos, function (el) {
+      el.classList.add("is-visible");
+    });
+  } else {
+    var observador = new IntersectionObserver(function (entradas) {
+      entradas.forEach(function (entrada) {
+        if (!entrada.isIntersecting) return;
+        entrada.target.classList.add("is-visible");
+        observador.unobserve(entrada.target);
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -60px 0px" });
+
+    Array.prototype.forEach.call(elementos, function (el) {
+      observador.observe(el);
+    });
+  }
+
+  /* ----- 6. Año dinámico del footer ----- */
+  document.getElementById("anio").textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
