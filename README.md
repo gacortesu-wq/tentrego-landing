@@ -6,12 +6,10 @@ Este manual está escrito para que cualquier persona pueda editar el sitio, sin 
 programar. Lee con calma: no hay nada que puedas romper que no se arregle deshaciendo
 el cambio.
 
-> **Esta es una versión de revisión, todavía no lista para publicar.** A propósito,
-> el sitio muestra una franja amarilla arriba de todo y varias insignias
-> **CONFIRMAR** junto a los datos que faltan (precio, hora de corte, email, fotos,
-> mapa, testimonios). Así se puede revisar de un vistazo qué falta antes de
-> publicar. El punto 6 de este manual tiene la lista completa y cómo quitar cada
-> insignia cuando el dato ya esté confirmado.
+> **Todavía quedan datos por confirmar antes de publicar** (precio, hora de corte,
+> email, fotos, mapa, testimonios). No se muestran en la página — quedan solo como
+> comentarios internos dentro de `index.html`, marcados con la palabra `CONFIRMAR`.
+> El punto 6 de este manual tiene la lista completa.
 
 ---
 
@@ -147,40 +145,31 @@ el archivo (la línea que empieza con `<link href="https://fonts.googleapis.com.
 
 ## 6. Lo que falta antes de publicar
 
-Mientras el sitio no esté listo, esto se ve **directamente en la página**: una franja
-amarilla arriba de todo, y una insignia amarilla `⚠ CONFIRMAR` junto a cada dato
-pendiente (precio, hora de corte, email, fotos, mapa, testimonios). Es a propósito,
-para poder revisar de un vistazo qué falta sin tener que abrir el código. También
-puedes buscar la palabra **`CONFIRMAR`** dentro de `index.html` (con `Ctrl + F`)
-para ver el detalle de cada pendiente en los comentarios.
+Estos pendientes no se ven en la página — quedan solo como comentarios internos
+dentro de `index.html`. Busca la palabra **`CONFIRMAR`** (con `Ctrl + F`) para ver
+el detalle de cada uno justo donde corresponde editarlo.
 
 - [ ] **Dominio final.** Reemplazar `https://www.tentrego.cl/` por el dominio real.
-      Está en 5 líneas al principio del archivo. (No tiene insignia en la página:
-      va en metadatos que no se ven directamente).
+      Está en 5 líneas al principio del archivo.
 - [ ] **Logo oficial.** Exportar el logo desde el material de Instagram y guardarlo
-      como `assets/logo.png`. Hoy está dibujado con código (no tiene insignia: ya
-      se ve terminado, aunque sea provisional).
+      como `assets/logo.png`. Hoy está dibujado con código.
 - [ ] **Fotos y mapa reales.** Faltan `hero.jpg`, `equipo.jpg`, `portal.png`
       (captura del portal), `mapa-cobertura.jpg` (mapa de la Región Metropolitana,
-      sección Cobertura) y `og-image.jpg`. Las primeras cuatro se ven en la página
-      con un marco punteado amarillo y la insignia CONFIRMAR. Ver
-      `assets/README-ASSETS.md`.
+      sección Cobertura) y `og-image.jpg`. Mientras no existan, la página muestra
+      un dibujo de relleno con el nombre y tamaño del archivo que falta — no se
+      nota como pendiente a simple vista, así que conviene revisar la lista antes
+      de publicar. Ver `assets/README-ASSETS.md`.
 - [ ] **Hora de corte.** Definir hasta qué hora se puede agendar un retiro para que el
       envío salga el mismo día, y escribirla en la pregunta 4 del acordeón.
 - [ ] **Vigencia del precio.** Confirmar que "desde $2.500" sigue vigente. Si cambia,
       hay que actualizarlo en 4 lugares (el archivo lo indica en los comentarios).
-- [ ] **Email de contacto.** Si existe un correo oficial, reemplazar el bloque
-      marcado "Email — Confirmar" en la sección `CONTACTO` por el correo real.
+- [ ] **Email de contacto.** Si existe un correo oficial, reemplaza el bloque "Email"
+      de la sección `CONTACTO` por un enlace `mailto:` con el correo real (el propio
+      comentario del código explica cómo).
 - [ ] **Testimonios.** Solo publicar reseñas reales y con autorización del cliente.
       Hoy se ven 3 tarjetas de ejemplo con el texto entre corchetes — hay que
       reemplazarlas o volver a poner la sección completa dentro de un comentario
       HTML si no hay reseñas listas.
-
-**Antes de publicar de verdad**, quita también el modo de revisión: la franja
-amarilla de arriba y las insignias `CONFIRMAR`. Todo está agrupado en un solo bloque
-de `index.html` — búscalo por el título **"21. MARCAS 'PENDIENTE DE CONFIRMAR'"**
-dentro de la etiqueta `<style>`; ese comentario explica exactamente qué borrar y qué
-dejar.
 
 ---
 
