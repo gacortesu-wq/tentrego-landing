@@ -2,9 +2,11 @@
 
 Esta carpeta guarda todas las imágenes de la landing page de Tentrego!.
 
-**Cómo funciona hoy:** mientras una imagen no exista, el sitio muestra un dibujo gris
-de relleno (un "placeholder") con el nombre del archivo que falta. El sitio se ve
-completo igual, solo que sin las fotos reales.
+**Cómo funciona hoy:** mientras una imagen no exista, el sitio muestra un dibujo de
+relleno (un "placeholder") con borde punteado amarillo, una insignia **CONFIRMAR** y
+el nombre del archivo que falta. Es a propósito — mientras el sitio esté en revisión,
+sirve para ver de un vistazo qué fotos quedan pendientes. El sitio se ve completo
+igual, solo que sin las fotos reales.
 
 **Cómo reemplazar un placeholder:** abre `index.html`, busca el nombre del archivo
 (por ejemplo `hero.jpg`). Justo encima vas a encontrar un comentario con la línea

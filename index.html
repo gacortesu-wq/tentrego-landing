@@ -762,10 +762,106 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
   .hamburguesa{ display:none; }
   .menu-movil{ display:none; }
 }
+
+/* =========================================================
+   21. MARCAS "PENDIENTE DE CONFIRMAR" (solo para revisión interna)
+   -----------------------------------------------------------
+   Este bloque hace visibles en la propia página los datos que en
+   PROMPT-LANDING-TENTREGO.md están marcados como [CONFIRMAR], además
+   de las fotos que aún no existen. Es a propósito: mientras el sitio
+   no esté listo para publicarse, sirve para revisar de un vistazo qué
+   falta.
+
+   Cuando ya esté todo confirmado y quede listo para publicar:
+   - Borra la franja .aviso-revision (11 líneas justo después de <body>).
+   - Con Ctrl+H busca "confirmar" y quita cada <span class="confirmar">...
+     </span> (la insignia amarilla) de donde haya quedado.
+   - Quita las clases "tarjeta--pendiente" y "canal--pendiente".
+   - Reemplaza las fotos placeholder (busca "CONFIRMAR" dentro de los <svg>)
+     por las imágenes reales, como indica cada comentario de sección.
+   - En el formulario de contacto: si lo vas a usar, sigue las instrucciones
+     de su propio comentario (más abajo) para conectarlo; si no, vuelve a
+     comentarlo con <!-- y -->.
+   - Si no hay testimonios reales todavía, vuelve a comentar toda la
+     sección TESTIMONIOS con <!-- y -->.
+   Los estilos 21.a y 21.b (franja + insignia) ya no se usarán y se pueden
+   borrar. Los estilos 21.c y 21.d sí pueden quedar: el formulario y las
+   tarjetas de servicio los siguen usando una vez que tengan contenido real.
+   ========================================================= */
+
+/* 21.a — Franja de aviso fija arriba de todo el sitio */
+.aviso-revision{
+  background:#FFC629; color:#5C3D00;
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.82rem;
+  text-align:center; padding:10px 16px;
+  display:flex; align-items:center; justify-content:center; gap:8px;
+}
+.aviso-revision svg{ flex:none; }
+
+/* 21.b — Insignia pequeña "CONFIRMAR" junto a un dato puntual */
+.confirmar{
+  display:inline-flex; align-items:flex-start; gap:5px;
+  max-width:100%;
+  background:#FFF3CD; color:#7A5900;
+  border:1px solid #F0C24B; border-radius:var(--radio-md);
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.68rem;
+  letter-spacing:.03em; text-transform:uppercase;
+  padding:5px 10px;
+  vertical-align:middle;
+}
+.confirmar svg{ flex:none; color:#B8860B; margin-top:2px; }
+.seccion--azul .confirmar{ background:#FFF3CD; color:#7A5900; }
+
+/* 21.c — Tarjeta o canal de contacto todavía sin contenido real */
+.tarjeta--pendiente{
+  border-style:dashed; border-color:#F0C24B;
+  background:repeating-linear-gradient(135deg, rgba(255,198,41,.10) 0 14px, rgba(255,198,41,.03) 14px 28px);
+}
+.tarjeta--pendiente h3,
+.tarjeta--pendiente p{ color:var(--gris-texto); }
+
+.canal--pendiente{
+  border:1px dashed rgba(255,198,41,.55);
+  background:rgba(255,198,41,.06);
+}
+.canal--pendiente .canal__icono{ color:#FFC629; }
+
+/* 21.d — Formulario de contacto (visible en modo revisión, aún sin conectar) */
+.contacto__form{
+  display:grid; gap:14px; margin-top:24px;
+  background:rgba(255,255,255,.07);
+  border:1px dashed rgba(255,198,41,.55);
+  border-radius:var(--radio-md); padding:24px;
+}
+.contacto__form label{
+  font-family:var(--fuente-titulo); font-weight:700; font-size:.85rem;
+  color:var(--blanco); margin-bottom:-6px;
+}
+.contacto__form input,
+.contacto__form textarea{
+  width:100%; font:inherit; font-size:.95rem;
+  padding:12px 14px; border-radius:var(--radio-sm);
+  border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.96); color:var(--texto);
+}
+.contacto__form textarea{ resize:vertical; }
+.contacto__form .confirmar{ margin-top:2px; }
+.contacto__form-nota{ font-size:.85rem; color:#C6D6EA; margin-top:-2px; }
+
+.footer__legal--nota{ margin-top:14px; text-align:center; }
 </style>
 </head>
 
 <body>
+
+<!-- ===========================================================
+     AVISO DE REVISIÓN — quitar esta franja cuando el sitio esté
+     listo para publicarse (ver sección 21 dentro de <style> y el
+     punto 6 de README.md con la lista completa de pendientes).
+     =========================================================== -->
+<div class="aviso-revision">
+  <svg width="18" height="18" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>
+  Vista previa interna — quedan puntos marcados CONFIRMAR y fotos por reemplazar antes de publicar
+</div>
 
 <a class="saltar" href="#contenido">Saltar al contenido principal</a>
 
@@ -838,6 +934,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
     </symbol>
     <symbol id="i-documento" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
       <path d="M13.6 2.8H6.8A1.9 1.9 0 0 0 5 4.7v14.6a1.9 1.9 0 0 0 1.9 1.9h10.2a1.9 1.9 0 0 0 1.9-1.9V8.1l-5.4-5.3Z"/><path d="M13.4 2.9v5.3h5.5M8.6 13.4h6.8M8.6 16.8h4.6"/>
+    </symbol>
+    <symbol id="i-alerta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M12 3.4 21.6 20.3H2.4Z"/><path d="M12 9.6v4.6M12 17.4h.01"/>
     </symbol>
   </defs>
 </svg>
@@ -950,9 +1049,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
              <img src="assets/hero.jpg" width="1200" height="900"
                   alt="Repartidor de Tentrego! entregando un paquete a una clienta en Santiago">
              ========================================================= -->
-        <svg class="ph" viewBox="0 0 1200 900" role="img" aria-label="Espacio reservado para la foto de un repartidor de Tentrego! entregando un paquete">
+        <svg class="ph" viewBox="0 0 1200 900" role="img" aria-label="Espacio reservado para la foto de un repartidor de Tentrego! entregando un paquete — pendiente de confirmar">
           <rect width="1200" height="900" fill="#F5F7FA"/>
-          <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#E3E8EF" stroke-width="2" rx="26"/>
+          <rect x="1" y="1" width="1198" height="898" fill="none" stroke="#F0C24B" stroke-width="3" stroke-dasharray="14 10" rx="26"/>
           <g transform="translate(600 385)">
             <path d="M-110-70 0-112 110-70 0-28Z" fill="#F25252"/>
             <path d="M-110-70 0-28v118l-110-42Z" fill="#E02020"/>
@@ -960,6 +1059,10 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
             <rect x="-176" y="-58" width="46" height="13" rx="6.5" fill="#E02020" opacity=".35"/>
             <rect x="-166" y="-28" width="36" height="13" rx="6.5" fill="#E02020" opacity=".55"/>
             <rect x="-176" y="2"  width="50" height="13" rx="6.5" fill="#E02020" opacity=".35"/>
+          </g>
+          <g transform="translate(36 36)">
+            <rect width="176" height="42" rx="21" fill="#FFC629"/>
+            <text x="88" y="27" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="800" fill="#5C3D00" letter-spacing="1">CONFIRMAR</text>
           </g>
           <text x="600" y="600" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700" fill="#143059">Foto: assets/hero.jpg</text>
           <text x="600" y="646" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5A6676">1200 × 900 px — repartidor entregando un paquete</text>
@@ -1136,7 +1239,8 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
             <span class="ventaja__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-rayo"/></svg></span>
             <div>
               <h3>Tarifas competitivas</h3>
-              <p>Desde <span class="ventaja__precio">$2.500</span> por envío dentro de Santiago.</p>
+              <p>Desde <span class="ventaja__precio">$2.500</span> por envío dentro de Santiago.
+                <span class="confirmar"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>Confirmar vigencia</span></p>
             </div>
           </li>
           <li class="ventaja">
@@ -1159,12 +1263,16 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
              <img src="assets/equipo.jpg" width="1000" height="1100" loading="lazy"
                   alt="Equipo de Tentrego! cargando paquetes en la camioneta de reparto">
              ========================================================= -->
-        <svg class="ph" viewBox="0 0 1000 1100" role="img" aria-label="Espacio reservado para una foto del equipo de Tentrego! cargando la camioneta">
+        <svg class="ph" viewBox="0 0 1000 1100" role="img" aria-label="Espacio reservado para una foto del equipo de Tentrego! cargando la camioneta — pendiente de confirmar">
           <rect width="1000" height="1100" fill="#F5F7FA"/>
-          <rect x="1" y="1" width="998" height="1098" fill="none" stroke="#E3E8EF" stroke-width="2" rx="26"/>
+          <rect x="1" y="1" width="998" height="1098" fill="none" stroke="#F0C24B" stroke-width="3" stroke-dasharray="14 10" rx="26"/>
           <g transform="translate(500 470)" fill="none" stroke="#143059" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" opacity=".5">
             <path d="M-150-90h150v130h-150zM0-60h50l45 44v46H0z"/>
             <circle cx="-110" cy="66" r="26"/><circle cx="30" cy="66" r="26"/>
+          </g>
+          <g transform="translate(36 36)">
+            <rect width="176" height="42" rx="21" fill="#FFC629"/>
+            <text x="88" y="27" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="800" fill="#5C3D00" letter-spacing="1">CONFIRMAR</text>
           </g>
           <text x="500" y="700" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700" fill="#143059">Foto: assets/equipo.jpg</text>
           <text x="500" y="746" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5A6676">1000 × 1100 px — el equipo cargando la camioneta</text>
@@ -1175,28 +1283,47 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
   </section>
 
   <!-- ===========================================================
-       TESTIMONIOS — SECCIÓN DESACTIVADA A PROPÓSITO
+       TESTIMONIOS — sección visible SOLO para esta revisión interna
        ...........................................................
-       IMPORTANTE: no se publican testimonios inventados. Cuando tengas
-       reseñas REALES de clientes (con su autorización), copia el bloque
-       de abajo fuera de este comentario y reemplaza los textos.
-
-       <section class="seccion seccion--gris" id="testimonios">
-         <div class="contenedor">
-           <header class="cab">
-             <p class="kicker">Clientes</p>
-             <h2 class="titulo">Lo que dicen <span class="c-rojo">de nosotros</span></h2>
-           </header>
-           <div class="servicios__grid">
-             <article class="tarjeta">
-               <p>"Aquí va la reseña textual del cliente, tal como la escribió."</p>
-               <h3>Nombre real del cliente</h3>
-               <p>Nombre de su emprendimiento · Comuna</p>
-             </article>
-           </div>
-         </div>
-       </section>
+       IMPORTANTE: no se publican testimonios inventados. Las 3 tarjetas
+       de abajo son un molde vacío (con corchetes) solo para mostrar el
+       espacio reservado. Cuando tengas reseñas REALES de clientes (con
+       su autorización), reemplaza el texto entre corchetes de cada
+       tarjeta y quita la clase "tarjeta--pendiente" y la insignia
+       "confirmar" del título. Si al momento de publicar no hay reseñas
+       reales, vuelve a poner esta sección completa dentro de un comentario HTML.
        =========================================================== -->
+  <section class="seccion seccion--gris" id="testimonios">
+    <div class="contenedor">
+      <header class="cab reveal">
+        <p class="kicker">Clientes</p>
+        <h2 class="titulo">Lo que dicen <span class="c-rojo">de nosotros</span></h2>
+        <p class="bajada">
+          <span class="confirmar">
+            <svg width="13" height="13" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>
+            Confirmar — agregar reseñas reales de clientes, con su autorización
+          </span>
+        </p>
+      </header>
+      <div class="servicios__grid">
+        <article class="tarjeta tarjeta--pendiente reveal">
+          <p>"[Aquí va la reseña textual real de un cliente, tal como la escribió]"</p>
+          <h3>[Nombre real del cliente]</h3>
+          <p>[Su emprendimiento · comuna]</p>
+        </article>
+        <article class="tarjeta tarjeta--pendiente reveal">
+          <p>"[Aquí va la reseña textual real de un cliente, tal como la escribió]"</p>
+          <h3>[Nombre real del cliente]</h3>
+          <p>[Su emprendimiento · comuna]</p>
+        </article>
+        <article class="tarjeta tarjeta--pendiente reveal">
+          <p>"[Aquí va la reseña textual real de un cliente, tal como la escribió]"</p>
+          <h3>[Nombre real del cliente]</h3>
+          <p>[Su emprendimiento · comuna]</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
   <!-- Corte diagonal blanco → azul -->
   <div class="corte corte--blanco-azul" aria-hidden="true">
@@ -1240,7 +1367,7 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
              <img src="assets/portal.png" width="1600" height="1000" loading="lazy"
                   alt="Vista del portal de clientes de Tentrego! con el listado de envíos">
              ========================================================= -->
-        <svg class="ph" viewBox="0 0 1000 660" role="img" aria-label="Espacio reservado para la captura del portal de clientes de Tentrego!">
+        <svg class="ph" viewBox="0 0 1000 660" role="img" aria-label="Espacio reservado para la captura del portal de clientes de Tentrego! — pendiente de confirmar">
           <!-- marco de laptop -->
           <rect x="60" y="20" width="880" height="540" rx="20" fill="#0B1E38" stroke="rgba(255,255,255,.22)" stroke-width="3"/>
           <rect x="82" y="44" width="836" height="492" rx="8" fill="#FFFFFF"/>
@@ -1286,7 +1413,11 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
           </g>
           <!-- base de la laptop -->
           <rect x="20" y="566" width="960" height="22" rx="11" fill="#0B1E38" stroke="rgba(255,255,255,.22)" stroke-width="3"/>
-          <text x="500" y="632" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#C6D6EA">Captura pendiente: assets/portal.png (1600 × 1000 px)</text>
+          <text x="500" y="632" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" fill="#C6D6EA">CONFIRMAR — captura pendiente: assets/portal.png (1600 × 1000 px)</text>
+          <g transform="translate(10 8)">
+            <rect width="164" height="38" rx="19" fill="#FFC629"/>
+            <text x="82" y="25" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="16" font-weight="800" fill="#5C3D00" letter-spacing="1">CONFIRMAR</text>
+          </g>
         </svg>
       </div>
 
@@ -1392,6 +1523,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
              PREGUNTAS FRECUENTES y en la meta description del <head>. -->
         <p class="tarifas__precio"><small>Desde</small>$2.500</p>
         <p class="tarifas__nota">por envío dentro de Santiago</p>
+        <p class="tarifas__nota">
+          <span class="confirmar"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>Confirmar vigencia del precio</span>
+        </p>
 
         <ul class="tarifas__bullets">
           <li><svg width="20" height="20" aria-hidden="true" focusable="false"><use href="#i-check-circulo"/></svg> Retiros sin costo desde 5 paquetes.</li>
@@ -1431,10 +1565,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
               <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
             </button>
           </h3>
-          <!-- [CONFIRMAR vigencia del precio] -->
           <div class="faq__panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1">
             <div class="faq__contenido">
-              <p>Desde $2.500 por envío dentro de Santiago. El valor final depende de la comuna de destino, el volumen mensual que despaches y el tipo de paquete. Escríbenos por WhatsApp con tus destinos y te cotizamos sin compromiso.</p>
+              <p>Desde $2.500 por envío dentro de Santiago. <span class="confirmar"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>Confirmar vigencia</span> El valor final depende de la comuna de destino, el volumen mensual que despaches y el tipo de paquete. Escríbenos por WhatsApp con tus destinos y te cotizamos sin compromiso.</p>
             </div>
           </div>
         </div>
@@ -1477,13 +1610,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
               <svg class="faq__chevron" width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-chevron"/></svg>
             </button>
           </h3>
-          <!-- [CONFIRMAR hora de corte] Falta definir la hora límite para agendar un
-               retiro y que el envío salga el mismo día (por ejemplo "antes de las 11:00").
-               Cuando la tengas, reemplaza la frase genérica del párrafo de abajo por el
-               horario concreto: "...agendando el retiro antes de las HH:MM". -->
           <div class="faq__panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4">
             <div class="faq__contenido">
-              <p>Sí, entregamos el mismo día dentro de Santiago. Para alcanzar a salir con tus paquetes hay que agendar el retiro temprano: escríbenos por WhatsApp y te confirmamos el horario de corte del día.</p>
+              <p>Sí, entregamos el mismo día dentro de Santiago. Para alcanzar a salir con tus paquetes hay que agendar el retiro temprano: escríbenos por WhatsApp y te confirmamos el horario de corte del día. <span class="confirmar"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>Confirmar hora de corte exacta</span></p>
             </div>
           </div>
         </div>
@@ -1567,13 +1696,13 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
             <span><strong>@tentrego.chile</strong><span>Síguenos en Instagram</span></span>
           </a>
 
-          <!-- [CONFIRMAR email de contacto] Cuando exista un correo oficial,
-               descomenta este bloque y reemplaza "correo@tentrego.cl".
-          <a class="canal" href="mailto:correo@tentrego.cl">
+          <!-- Cuando exista un correo oficial: reemplaza el <div> de abajo por
+               un <a class="canal" href="mailto:TU-CORREO@dominio.cl"> con el
+               correo real, y quita la clase "canal--pendiente". -->
+          <div class="canal canal--pendiente">
             <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-documento"/></svg></span>
-            <span><strong>correo@tentrego.cl</strong><span>Escríbenos por correo</span></span>
-          </a>
-          -->
+            <span><strong>Email <span class="confirmar"><svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>Confirmar</span></strong><span>Aún no hay un correo oficial de contacto</span></span>
+          </div>
 
           <div class="canal">
             <span class="canal__icono"><svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-pin"/></svg></span>
@@ -1582,20 +1711,28 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
         </div>
 
         <!-- ===========================================================
-             FORMULARIO DE CONTACTO — DESACTIVADO
+             FORMULARIO DE CONTACTO — visible en esta revisión, aún sin conectar
              ...........................................................
-             Hoy priorizamos WhatsApp porque aún no hay un email confirmado.
-             CÓMO ACTIVARLO cuando lo necesites:
+             Hoy priorizamos WhatsApp porque aún no hay un email confirmado. Por
+             eso el botón de abajo es type="button": a propósito no envía nada.
+             CÓMO ACTIVARLO cuando tengas el correo:
                Opción A (mailto, sin servicios externos):
-                 1. Saca este bloque del comentario.
-                 2. En el <form>, cambia action="mailto:TU-CORREO@dominio.cl".
+                 1. En el <form>, agrega action="mailto:TU-CORREO@dominio.cl" method="POST".
+                 2. Cambia el botón a type="submit".
                  3. Ojo: abre el programa de correo del visitante; es el método más básico.
                Opción B (Formspree, recomendado):
                  1. Crea una cuenta gratis en formspree.io y copia tu ID de formulario.
-                 2. Cambia action="https://formspree.io/f/TU-ID-DE-FORMSPREE".
-                 3. Deja method="POST".
+                 2. Agrega action="https://formspree.io/f/TU-ID-DE-FORMSPREE" method="POST".
+                 3. Cambia el botón a type="submit".
+             En ambos casos, después quita el <p class="confirmar"> y el
+             <p class="contacto__form-nota"> de abajo: ya no aplican.
+             =========================================================== -->
+        <form class="contacto__form">
+          <p class="confirmar">
+            <svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>
+            Confirmar — conectar a un correo o a Formspree
+          </p>
 
-        <form class="contacto__form" action="mailto:TU-CORREO@dominio.cl" method="POST">
           <label for="f-nombre">Nombre</label>
           <input id="f-nombre" name="nombre" type="text" required>
 
@@ -1608,9 +1745,9 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
           <label for="f-mensaje">Mensaje</label>
           <textarea id="f-mensaje" name="mensaje" rows="4" required></textarea>
 
-          <button class="btn btn--primario btn--full" type="submit">Enviar mensaje</button>
+          <button class="btn btn--primario btn--full" type="button">Enviar mensaje</button>
+          <p class="contacto__form-nota">Este formulario todavía no está conectado a un correo ni a Formspree — por ahora usa WhatsApp.</p>
         </form>
-             =========================================================== -->
       </div>
 
       <div class="contacto__caja reveal">
@@ -1695,6 +1832,18 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
       <span>&copy; <span id="anio">2026</span> Tentrego! Todos los derechos reservados.</span>
       <span>Envíos en la Región Metropolitana, Chile.</span>
     </div>
+
+    <!-- Nota solo para esta revisión: el dominio, el logo, el favicon y la
+         imagen para compartir en redes (og-image) también están marcados
+         [CONFIRMAR] dentro del archivo, pero no tienen un lugar visible en
+         la página (van en el <head> o son íconos). Ver la lista completa
+         en el punto 6 de README.md. -->
+    <p class="footer__legal--nota">
+      <span class="confirmar">
+        <svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>
+        Confirmar además: dominio final, logo oficial y og-image (ver README.md, punto 6)
+      </span>
+    </p>
   </div>
 </footer>
 
