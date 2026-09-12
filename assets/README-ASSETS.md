@@ -18,7 +18,7 @@ saca la línea `<img>` del comentario.
 | Archivo | Tamaño recomendado | Formato | Qué debe mostrar | Estado |
 |---|---|---|---|---|
 | `logo.png` | 400 × 120 px | PNG con fondo transparente (o SVG) | El logo oficial: caja roja 3D con líneas de velocidad + la palabra "Tentrego!" | **Falta** — hoy el logo está dibujado con código |
-| `hero.jpg` | 1200 × 900 px | JPG | Repartidor de Tentrego! entregando un paquete. Idealmente con la caja o polera de la marca, luz natural | **Falta** |
+| `hero.jpg` | 1200 × 900 px | JPG | Repartidor de Tentrego! entregando un paquete. Idealmente con la caja o polera de la marca, luz natural | **Ya está listo** |
 | `equipo.jpg` | 1000 × 1100 px | JPG | El equipo cargando la camioneta, o el despacho/bodega. Debe transmitir cercanía y trabajo real | **Falta** |
 | `portal.png` | 1600 × 1000 px | PNG | Captura de pantalla del portal de clientes (`package-delivery-inventory.vercel.app`) | **Falta** |
 | `mapa-cobertura.jpg` | 900 × 900 px | JPG o PNG | Mapa real de la Región Metropolitana con la zona de cobertura y un marcador en Ñuñoa. Puede ser una captura de Google Maps editada con los colores de Tentrego!, o un mapa con licencia | **Falta** |
