@@ -395,26 +395,6 @@ body.menu-abierto{ overflow:hidden; }
   border-radius:var(--radio-lg);
   box-shadow:var(--sombra-lg);
 }
-/* Tarjeta flotante sobre la foto */
-.hero__tarjeta{
-  display:none;
-  position:absolute; left:-18px; bottom:26px;
-  background:var(--blanco); border-radius:var(--radio-md);
-  box-shadow:var(--sombra-lg);
-  padding:14px 18px;
-  align-items:center; gap:12px;
-  max-width:270px;
-}
-.hero__tarjeta-icono{
-  width:42px; height:42px; flex:none; border-radius:50%;
-  background:rgba(224,32,32,.10); color:var(--rojo);
-  display:grid; place-items:center;
-}
-.hero__tarjeta-texto strong{
-  display:block; font-family:var(--fuente-titulo); font-weight:700;
-  font-size:.95rem; color:var(--azul-marino); line-height:1.2;
-}
-.hero__tarjeta-texto span{ font-size:.82rem; color:var(--gris-texto); }
 
 /* =========================================================
    6. FRANJA DE CONFIANZA (banda azul marino)
@@ -516,7 +496,6 @@ body.menu-abierto{ overflow:hidden; }
 .dato svg{ flex:none; color:var(--rojo); }
 .dato strong{ display:block; font-family:var(--fuente-titulo); color:var(--azul-marino); font-size:.98rem; }
 .dato span{ font-size:.9rem; color:var(--gris-texto); }
-.mapa{ width:100%; height:auto; display:block; }
 
 /* =========================================================
    12. TARIFAS
@@ -727,7 +706,6 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
 
   .hero{ padding-block:70px 84px; }
   .hero__grid{ grid-template-columns:1.05fr .95fr; gap:52px; }
-  .hero__tarjeta{ display:flex; }
 
   .franja{ padding-block:16px 56px; }
 
@@ -777,16 +755,13 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
    - Con Ctrl+H busca "confirmar" y quita cada <span class="confirmar">...
      </span> (la insignia amarilla) de donde haya quedado.
    - Quita las clases "tarjeta--pendiente" y "canal--pendiente".
-   - Reemplaza las fotos placeholder (busca "CONFIRMAR" dentro de los <svg>)
-     por las imágenes reales, como indica cada comentario de sección.
-   - En el formulario de contacto: si lo vas a usar, sigue las instrucciones
-     de su propio comentario (más abajo) para conectarlo; si no, vuelve a
-     comentarlo con <!-- y -->.
-   - Si no hay testimonios reales todavía, vuelve a comentar toda la
-     sección TESTIMONIOS con <!-- y -->.
+   - Reemplaza las fotos y el mapa placeholder (busca "CONFIRMAR" dentro de
+     los <svg>) por las imágenes reales, como indica cada comentario de sección.
+   - Si no hay testimonios reales todavía, vuelve a poner la sección
+     TESTIMONIOS completa dentro de un comentario HTML.
    Los estilos 21.a y 21.b (franja + insignia) ya no se usarán y se pueden
-   borrar. Los estilos 21.c y 21.d sí pueden quedar: el formulario y las
-   tarjetas de servicio los siguen usando una vez que tengan contenido real.
+   borrar. El estilo 21.c sí puede quedar: las tarjetas y canales de
+   contacto lo siguen usando una vez que tengan contenido real.
    ========================================================= */
 
 /* 21.a — Franja de aviso fija arriba de todo el sitio */
@@ -825,27 +800,6 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
   background:rgba(255,198,41,.06);
 }
 .canal--pendiente .canal__icono{ color:#FFC629; }
-
-/* 21.d — Formulario de contacto (visible en modo revisión, aún sin conectar) */
-.contacto__form{
-  display:grid; gap:14px; margin-top:24px;
-  background:rgba(255,255,255,.07);
-  border:1px dashed rgba(255,198,41,.55);
-  border-radius:var(--radio-md); padding:24px;
-}
-.contacto__form label{
-  font-family:var(--fuente-titulo); font-weight:700; font-size:.85rem;
-  color:var(--blanco); margin-bottom:-6px;
-}
-.contacto__form input,
-.contacto__form textarea{
-  width:100%; font:inherit; font-size:.95rem;
-  padding:12px 14px; border-radius:var(--radio-sm);
-  border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.96); color:var(--texto);
-}
-.contacto__form textarea{ resize:vertical; }
-.contacto__form .confirmar{ margin-top:2px; }
-.contacto__form-nota{ font-size:.85rem; color:#C6D6EA; margin-top:-2px; }
 
 .footer__legal--nota{ margin-top:14px; text-align:center; }
 </style>
@@ -1067,16 +1021,6 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
           <text x="600" y="600" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="34" font-weight="700" fill="#143059">Foto: assets/hero.jpg</text>
           <text x="600" y="646" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="26" fill="#5A6676">1200 × 900 px — repartidor entregando un paquete</text>
         </svg>
-
-        <div class="hero__tarjeta">
-          <span class="hero__tarjeta-icono">
-            <svg width="22" height="22" aria-hidden="true" focusable="false"><use href="#i-rayo"/></svg>
-          </span>
-          <span class="hero__tarjeta-texto">
-            <strong>Tentregamos en el mismo día</strong>
-            <span>Retiro coordinado por WhatsApp</span>
-          </span>
-        </div>
       </div>
 
     </div>
@@ -1468,36 +1412,32 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
         </div>
       </div>
 
-      <!-- Mapa estilizado (dibujo esquemático, no un mapa real a escala) -->
+      <!-- ===== MAPA DE COBERTURA =====================================
+           Qué imagen va aquí: un mapa real de la Región Metropolitana que
+           muestre la zona de cobertura (puede ser una captura de Google
+           Maps con un marcador en Ñuñoa, editada con el logo o los colores
+           de Tentrego!, o un mapa comprado/con licencia).
+           Archivo: assets/mapa-cobertura.jpg  ·  Tamaño recomendado: 900 × 900 px
+
+           Cuando tengas el mapa real: borra el <svg> de abajo y descomenta esta línea:
+           <img src="assets/mapa-cobertura.jpg" width="900" height="900" loading="lazy"
+                alt="Mapa de la Región Metropolitana con la zona de cobertura de Tentrego! y la base de operaciones en Ñuñoa">
+           ========================================================= -->
       <div class="reveal">
-        <svg class="mapa" viewBox="0 0 620 560" role="img" aria-label="Ilustración esquemática de la cobertura de Tentrego! en la Región Metropolitana, con base en Ñuñoa">
-          <rect width="620" height="560" rx="26" fill="#F5F7FA"/>
-          <!-- silueta esquemática de la zona urbana -->
-          <path d="M132 118c54-38 132-52 198-34 62 17 104 58 122 116 19 61 8 128-28 175-38 49-104 72-168 64-66-8-124-47-150-105-27-60-17-140 26-176Z"
-                fill="#FFFFFF" stroke="#143059" stroke-width="3" stroke-opacity=".28"/>
-          <!-- divisiones internas (comunas, esquemáticas) -->
-          <g stroke="#143059" stroke-opacity=".16" stroke-width="2" fill="none">
-            <path d="M150 240h330M196 150v300M300 128v320M394 156v290M142 330h348"/>
+        <svg class="ph" viewBox="0 0 620 620" role="img" aria-label="Espacio reservado para el mapa de cobertura en la Región Metropolitana — pendiente de confirmar">
+          <rect width="620" height="620" fill="#F5F7FA"/>
+          <rect x="1" y="1" width="618" height="618" fill="none" stroke="#F0C24B" stroke-width="3" stroke-dasharray="14 10" rx="26"/>
+          <g transform="translate(310 280)" fill="none" stroke="#143059" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".45">
+            <path d="M0-90v58M0-8c-34 0-58 26-58 58 0 40 58 92 58 92s58-52 58-92c0-32-24-58-58-58Z"/>
+            <circle cx="0" cy="50" r="16"/>
           </g>
-          <!-- anillos de cobertura desde la base -->
-          <g fill="none" stroke="#E02020" stroke-opacity=".28" stroke-dasharray="7 9" stroke-width="2">
-            <circle cx="330" cy="286" r="86"/><circle cx="330" cy="286" r="140"/><circle cx="330" cy="286" r="194"/>
+          <g transform="translate(46 46)">
+            <rect width="176" height="42" rx="21" fill="#FFC629"/>
+            <text x="88" y="27" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="17" font-weight="800" fill="#5C3D00" letter-spacing="1">CONFIRMAR</text>
           </g>
-          <!-- puntos de entrega -->
-          <g fill="#3DA9E0">
-            <circle cx="226" cy="214" r="7"/><circle cx="424" cy="206" r="7"/><circle cx="196" cy="352" r="7"/>
-            <circle cx="452" cy="366" r="7"/><circle cx="330" cy="150" r="7"/><circle cx="272" cy="432" r="7"/>
-            <circle cx="398" cy="450" r="7"/><circle cx="486" cy="278" r="7"/><circle cx="168" cy="272" r="7"/>
-          </g>
-          <!-- base de operaciones -->
-          <g transform="translate(330 286)">
-            <circle r="30" fill="#E02020" opacity=".14"/>
-            <circle r="17" fill="#E02020"/>
-            <path d="M-6 0 -1.5 4.6 6.5-4" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>
-          </g>
-          <text x="330" y="348" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="20" font-weight="700" fill="#143059">Ñuñoa</text>
-          <text x="330" y="500" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="23" font-weight="800" fill="#143059" letter-spacing="1">REGIÓN METROPOLITANA</text>
-          <text x="330" y="528" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="17" fill="#5A6676">Ilustración referencial de nuestra cobertura</text>
+          <text x="310" y="462" text-anchor="middle" font-family="Montserrat, Arial, sans-serif" font-size="26" font-weight="700" fill="#143059">Mapa: assets/mapa-cobertura.jpg</text>
+          <text x="310" y="500" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#5A6676">900 × 900 px — Región Metropolitana</text>
+          <text x="310" y="528" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="20" fill="#5A6676">marcador en Ñuñoa</text>
         </svg>
       </div>
 
@@ -1709,45 +1649,6 @@ a.canal:hover{ background:rgba(255,255,255,.14); transform:translateX(3px); text
             <span><strong>Ñuñoa, Santiago</strong><span>Base de operaciones</span></span>
           </div>
         </div>
-
-        <!-- ===========================================================
-             FORMULARIO DE CONTACTO — visible en esta revisión, aún sin conectar
-             ...........................................................
-             Hoy priorizamos WhatsApp porque aún no hay un email confirmado. Por
-             eso el botón de abajo es type="button": a propósito no envía nada.
-             CÓMO ACTIVARLO cuando tengas el correo:
-               Opción A (mailto, sin servicios externos):
-                 1. En el <form>, agrega action="mailto:TU-CORREO@dominio.cl" method="POST".
-                 2. Cambia el botón a type="submit".
-                 3. Ojo: abre el programa de correo del visitante; es el método más básico.
-               Opción B (Formspree, recomendado):
-                 1. Crea una cuenta gratis en formspree.io y copia tu ID de formulario.
-                 2. Agrega action="https://formspree.io/f/TU-ID-DE-FORMSPREE" method="POST".
-                 3. Cambia el botón a type="submit".
-             En ambos casos, después quita el <p class="confirmar"> y el
-             <p class="contacto__form-nota"> de abajo: ya no aplican.
-             =========================================================== -->
-        <form class="contacto__form">
-          <p class="confirmar">
-            <svg width="12" height="12" aria-hidden="true" focusable="false"><use href="#i-alerta"/></svg>
-            Confirmar — conectar a un correo o a Formspree
-          </p>
-
-          <label for="f-nombre">Nombre</label>
-          <input id="f-nombre" name="nombre" type="text" required>
-
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" required>
-
-          <label for="f-telefono">Teléfono</label>
-          <input id="f-telefono" name="telefono" type="tel">
-
-          <label for="f-mensaje">Mensaje</label>
-          <textarea id="f-mensaje" name="mensaje" rows="4" required></textarea>
-
-          <button class="btn btn--primario btn--full" type="button">Enviar mensaje</button>
-          <p class="contacto__form-nota">Este formulario todavía no está conectado a un correo ni a Formspree — por ahora usa WhatsApp.</p>
-        </form>
       </div>
 
       <div class="contacto__caja reveal">

@@ -9,7 +9,7 @@ el cambio.
 > **Esta es una versión de revisión, todavía no lista para publicar.** A propósito,
 > el sitio muestra una franja amarilla arriba de todo y varias insignias
 > **CONFIRMAR** junto a los datos que faltan (precio, hora de corte, email, fotos,
-> testimonios, formulario). Así se puede revisar de un vistazo qué falta antes de
+> mapa, testimonios). Así se puede revisar de un vistazo qué falta antes de
 > publicar. El punto 6 de este manual tiene la lista completa y cómo quitar cada
 > insignia cuando el dato ya esté confirmado.
 
@@ -149,10 +149,10 @@ el archivo (la línea que empieza con `<link href="https://fonts.googleapis.com.
 
 Mientras el sitio no esté listo, esto se ve **directamente en la página**: una franja
 amarilla arriba de todo, y una insignia amarilla `⚠ CONFIRMAR` junto a cada dato
-pendiente (precio, hora de corte, email, fotos, testimonios, formulario). Es a
-propósito, para poder revisar de un vistazo qué falta sin tener que abrir el código.
-También puedes buscar la palabra **`CONFIRMAR`** dentro de `index.html` (con
-`Ctrl + F`) para ver el detalle de cada pendiente en los comentarios.
+pendiente (precio, hora de corte, email, fotos, mapa, testimonios). Es a propósito,
+para poder revisar de un vistazo qué falta sin tener que abrir el código. También
+puedes buscar la palabra **`CONFIRMAR`** dentro de `index.html` (con `Ctrl + F`)
+para ver el detalle de cada pendiente en los comentarios.
 
 - [ ] **Dominio final.** Reemplazar `https://www.tentrego.cl/` por el dominio real.
       Está en 5 líneas al principio del archivo. (No tiene insignia en la página:
@@ -160,9 +160,11 @@ También puedes buscar la palabra **`CONFIRMAR`** dentro de `index.html` (con
 - [ ] **Logo oficial.** Exportar el logo desde el material de Instagram y guardarlo
       como `assets/logo.png`. Hoy está dibujado con código (no tiene insignia: ya
       se ve terminado, aunque sea provisional).
-- [ ] **Fotos reales.** Faltan `hero.jpg`, `equipo.jpg`, `portal.png` (captura del
-      portal) y `og-image.jpg`. Las tres primeras se ven en la página con un marco
-      punteado amarillo y la insignia CONFIRMAR. Ver `assets/README-ASSETS.md`.
+- [ ] **Fotos y mapa reales.** Faltan `hero.jpg`, `equipo.jpg`, `portal.png`
+      (captura del portal), `mapa-cobertura.jpg` (mapa de la Región Metropolitana,
+      sección Cobertura) y `og-image.jpg`. Las primeras cuatro se ven en la página
+      con un marco punteado amarillo y la insignia CONFIRMAR. Ver
+      `assets/README-ASSETS.md`.
 - [ ] **Hora de corte.** Definir hasta qué hora se puede agendar un retiro para que el
       envío salga el mismo día, y escribirla en la pregunta 4 del acordeón.
 - [ ] **Vigencia del precio.** Confirmar que "desde $2.500" sigue vigente. Si cambia,
@@ -171,10 +173,8 @@ También puedes buscar la palabra **`CONFIRMAR`** dentro de `index.html` (con
       marcado "Email — Confirmar" en la sección `CONTACTO` por el correo real.
 - [ ] **Testimonios.** Solo publicar reseñas reales y con autorización del cliente.
       Hoy se ven 3 tarjetas de ejemplo con el texto entre corchetes — hay que
-      reemplazarlas o volver a comentar toda la sección si no hay reseñas listas.
-- [ ] **Formulario de contacto.** Está visible pero sin conectar (el botón no envía
-      nada todavía). Conéctalo a un correo o a Formspree, o vuelve a comentarlo si
-      prefieres usar solo WhatsApp. Su propio comentario en el código explica cómo.
+      reemplazarlas o volver a poner la sección completa dentro de un comentario
+      HTML si no hay reseñas listas.
 
 **Antes de publicar de verdad**, quita también el modo de revisión: la franja
 amarilla de arriba y las insignias `CONFIRMAR`. Todo está agrupado en un solo bloque

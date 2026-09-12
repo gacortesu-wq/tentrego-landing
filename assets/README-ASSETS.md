@@ -23,6 +23,7 @@ saca la línea `<img>` del comentario.
 | `hero.jpg` | 1200 × 900 px | JPG | Repartidor de Tentrego! entregando un paquete. Idealmente con la caja o polera de la marca, luz natural | **Falta** |
 | `equipo.jpg` | 1000 × 1100 px | JPG | El equipo cargando la camioneta, o el despacho/bodega. Debe transmitir cercanía y trabajo real | **Falta** |
 | `portal.png` | 1600 × 1000 px | PNG | Captura de pantalla del portal de clientes (`package-delivery-inventory.vercel.app`) | **Falta** |
+| `mapa-cobertura.jpg` | 900 × 900 px | JPG o PNG | Mapa real de la Región Metropolitana con la zona de cobertura y un marcador en Ñuñoa. Puede ser una captura de Google Maps editada con los colores de Tentrego!, o un mapa con licencia | **Falta** |
 | `og-image.jpg` | 1200 × 630 px | JPG | Imagen que aparece cuando alguien comparte el link por WhatsApp, Instagram o Facebook. Logo + frase corta sobre fondo de marca | **Falta** |
 | `favicon.png` | 512 × 512 px | PNG | Ícono de la pestaña del navegador | Opcional — ya hay uno provisional (`favicon.svg`) |
 | `apple-touch-icon.png` | 180 × 180 px | PNG | Ícono al guardar el sitio en la pantalla de inicio de un iPhone | Opcional |
@@ -41,6 +42,11 @@ saca la línea `<img>` del comentario.
   autorización antes de publicarlas.
 - **Captura del portal:** antes de tomarla, asegúrate de que no se vean datos reales
   de clientes (nombres, direcciones, teléfonos). Usa datos de ejemplo.
+- **Mapa de cobertura:** si usas una captura de Google Maps, revisa sus condiciones de
+  uso antes de publicarla (lo habitual es que una captura simple para mostrar una zona
+  esté bien, pero evita reproducir el mapa a gran escala o venderlo). Como alternativa,
+  puedes generar un mapa simple con una herramienta como [Mapbox](https://www.mapbox.com)
+  o [OpenStreetMap](https://www.openstreetmap.org).
 - **Nombres de archivo:** respeta exactamente los nombres de la tabla, en minúsculas y
   sin tildes ni espacios. Si cambias un nombre, también hay que cambiarlo en
   `index.html`.
