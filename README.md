@@ -153,12 +153,12 @@ el detalle de cada uno justo donde corresponde editarlo.
       Está en 5 líneas al principio del archivo.
 - [ ] **Logo oficial.** Exportar el logo desde el material de Instagram y guardarlo
       como `assets/logo.png`. Hoy está dibujado con código.
-- [ ] **Fotos y mapa reales.** Faltan `hero.jpg`, `equipo.jpg`, `portal.png`
-      (captura del portal), `mapa-cobertura.jpg` (mapa de la Región Metropolitana,
-      sección Cobertura) y `og-image.jpg`. Mientras no existan, la página muestra
-      un dibujo de relleno con el nombre y tamaño del archivo que falta — no se
-      nota como pendiente a simple vista, así que conviene revisar la lista antes
-      de publicar. Ver `assets/README-ASSETS.md`.
+- [ ] **Fotos que faltan.** Ya están listas `hero.jpg`, `equipo.jpg` y
+      `mapa-cobertura.jpg`. Todavía faltan `portal.png` (captura del portal) y
+      `og-image.jpg`. Mientras no existan, la página muestra un dibujo de relleno
+      con el nombre y tamaño del archivo que falta — no se nota como pendiente a
+      simple vista, así que conviene revisar la lista antes de publicar. Ver
+      `assets/README-ASSETS.md`.
 - [ ] **Hora de corte.** Definir hasta qué hora se puede agendar un retiro para que el
       envío salga el mismo día, y escribirla en la pregunta 4 del acordeón.
 - [ ] **Vigencia del precio.** Confirmar que "desde $2.500" sigue vigente. Si cambia,
